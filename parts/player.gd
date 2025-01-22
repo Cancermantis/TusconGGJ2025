@@ -1,11 +1,10 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-@export var mouse_sensitivity : float = 5e-3
-
-@onready var downcast: RayCast3D = $RayCast3D
+var bubble_size := 49
+const SPEED := 5.0
+const JUMP_VELOCITY := 4.5
+@export var mouse_sensitivity := 5e-3
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -15,13 +14,15 @@ func _process(delta: float) -> void:
 	var mouse_delta := Input.get_last_mouse_velocity()
 	rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
 	#downcast.
+	var distance := position.length()
+	if distance > bubble_size:
+		position = position.normalized() * bubble_size
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		#velocity += get_gravity() * delta
-		pass
+		velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
