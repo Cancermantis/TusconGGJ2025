@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqfonpnki65en"]
+
+[ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
+[ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
+[ext_resource type="Shader" path="res://parts/terrain.gdshader" id="2_m5cn3"]
+[ext_resource type="Script" path="res://parts/terrain.gd" id="4_bo63a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhjj"]
+
+[sub_resource type="Sky" id="Sky_uol04"]
+sky_material = SubResource("ProceduralSkyMaterial_jyhjj")
+
+[sub_resource type="Environment" id="Environment_ns7kq"]
+background_mode = 2
+sky = SubResource("Sky_uol04")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hmwii"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_osi2n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ml1w"]
+seamless = true
+as_normal_map = true
+bump_strength = 4.5
+normalize = false
+noise = SubResource("FastNoiseLite_osi2n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3pcf"]
+render_priority = 0
+shader = ExtResource("2_m5cn3")
+shader_parameter/color = Color(0.756863, 0.686275, 0.592157, 1)
+shader_parameter/normal = SubResource("NoiseTexture2D_8ml1w")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ik0qd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.982639, 0.185529, 0, -0.185529, 0.982639, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ns7kq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("4_bo63a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_hmwii")
+
+[node name="Terrain" parent="StaticBody3D/CollisionShape3D" instance=ExtResource("1_h6576")]
+
+[node name="geometry_0" parent="StaticBody3D/CollisionShape3D/Terrain/world" index="0"]
+material_override = SubResource("ShaderMaterial_s3pcf")
+
+[editable path="StaticBody3D/CollisionShape3D/Terrain"]
