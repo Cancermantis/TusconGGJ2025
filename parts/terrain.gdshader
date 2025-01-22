@@ -8,7 +8,7 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = color;
-	//NORMAL_MAP = texture(normal, UV).xyz;
+	NORMAL_MAP = texture(normal, 1e6 * UV).xyz;
 }
 
 //void light() {

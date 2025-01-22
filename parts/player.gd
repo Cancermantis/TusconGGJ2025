@@ -5,6 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @export var mouse_sensitivity : float = 5e-3
 
+@onready var downcast: RayCast3D = $RayCast3D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -13,6 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var mouse_delta := Input.get_last_mouse_velocity()
 	rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
+	#downcast.
 
 
 func _physics_process(delta: float) -> void:
