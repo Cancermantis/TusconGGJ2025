@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmaf52lg6p1s"]
+
+[ext_resource type="Script" path="res://parts/photo_subject.gd" id="1_st3na"]
+
+[node name="SubjectInfo" type="VisibleOnScreenNotifier3D" groups=["photo_subject"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.605, 0)
+aabb = AABB(-0.534581, -0.501128, -0.549867, 1.06916, 1.06964, 1.09973)
+script = ExtResource("1_st3na")
+
+[connection signal="screen_entered" from="." to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="." to="." method="_on_screen_exited"]

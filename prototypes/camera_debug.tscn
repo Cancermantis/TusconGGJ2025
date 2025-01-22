@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://uce58xxi1bo1"]
+
+[ext_resource type="Texture2D" uid="uid://d0jlvsms8gdux" path="res://icon.svg" id="1_ve26y"]
+
+[sub_resource type="GDScript" id="GDScript_ih3o4"]
+resource_name = "PhotoDebug"
+script/source = "extends Control
+
+@export var last_photo_taken: TextureRect
+@export var subjects: Label
+
+func _on_photo_camera_photo_taken(photo: ImageTexture, subject_data: Array[SubjectInfo]) -> void:
+	last_photo_taken.texture = photo
+	last_photo_taken.custom_minimum_size.x = photo.get_size().x *.25
+	last_photo_taken.custom_minimum_size.y = photo.get_size().y *.25
+	
+	var names: PackedStringArray
+	for subject in subject_data:
+		names.append(subject.name)
+	
+	subjects.text = \", \".join(PackedStringArray(names))
+"
+
+[node name="CameraDebug" type="VBoxContainer" node_paths=PackedStringArray("last_photo_taken", "subjects")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_ih3o4")
+last_photo_taken = NodePath("TextureRect")
+subjects = NodePath("Label2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_ve26y")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2

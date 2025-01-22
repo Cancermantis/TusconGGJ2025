@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbbiwkwa3bagq"]
+
+[ext_resource type="Script" path="res://parts/photo_camera.gd" id="1_4svfx"]
+
+[node name="PhotoCamera" type="Node" groups=["photo_camera"]]
+process_mode = 3
+script = ExtResource("1_4svfx")
