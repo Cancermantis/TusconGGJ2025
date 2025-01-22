@@ -1,6 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqfonpnki65en"]
+[gd_scene load_steps=10 format=3 uid="uid://bqfonpnki65en"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
+[ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
+[ext_resource type="Shader" path="res://parts/terrain.gdshader" id="2_m5cn3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_osi2n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ml1w"]
+seamless = true
+as_normal_map = true
+bump_strength = 8.3
+normalize = false
+noise = SubResource("FastNoiseLite_osi2n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3pcf"]
+render_priority = 0
+shader = ExtResource("2_m5cn3")
+shader_parameter/color = Color(0.756863, 0.686275, 0.592157, 1)
+shader_parameter/normal = SubResource("NoiseTexture2D_8ml1w")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhjj"]
 
@@ -13,10 +30,18 @@ sky = SubResource("Sky_uol04")
 
 [node name="Node3D" type="Node3D"]
 
+[node name="Player" parent="." instance=ExtResource("1_ik0qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46657, 0)
+
 [node name="Terrain" parent="." instance=ExtResource("1_h6576")]
+
+[node name="geometry_0" parent="Terrain/world" index="0"]
+material_override = SubResource("ShaderMaterial_s3pcf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.982639, 0.185529, 0, -0.185529, 0.982639, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ns7kq")
+
+[editable path="Terrain"]
