@@ -17,3 +17,15 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Tucson GGJ2025"
+
+[global_group]
+
+photo_camera="Node group for quickly and easily finding the PhotoCamera node from any script in the scene"
+camera_hidden="Group for all visual nodes that shouldn't be visible when a photo is taken"
+photo_subject=""
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+occlusion_culling/use_occlusion_culling=true
