@@ -17,3 +17,8 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Tucson GGJ2025"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

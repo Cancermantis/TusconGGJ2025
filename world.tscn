@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqfonpnki65en"]
+
+[ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhjj"]
+
+[sub_resource type="Sky" id="Sky_uol04"]
+sky_material = SubResource("ProceduralSkyMaterial_jyhjj")
+
+[sub_resource type="Environment" id="Environment_ns7kq"]
+background_mode = 2
+sky = SubResource("Sky_uol04")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Terrain" parent="." instance=ExtResource("1_h6576")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.982639, 0.185529, 0, -0.185529, 0.982639, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ns7kq")
