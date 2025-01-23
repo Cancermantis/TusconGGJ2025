@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=19 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
+[ext_resource type="Script" path="res://world.gd" id="1_xyhbd"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://parts/photo_camera.tscn" id="2_c0400"]
 [ext_resource type="Shader" path="res://parts/terrain.gdshader" id="2_m5cn3"]
 [ext_resource type="Script" path="res://parts/terrain.gd" id="4_bo63a"]
@@ -41,6 +42,7 @@ shader_parameter/color = Color(0.952941, 0.768627, 0.52549, 1)
 shader_parameter/normal = SubResource("NoiseTexture2D_8ml1w")
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_xyhbd")
 
 [node name="Player" parent="." instance=ExtResource("1_ik0qd")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 0)

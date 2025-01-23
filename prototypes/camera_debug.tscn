@@ -10,6 +10,7 @@ script/source = "extends Control
 @export var subjects: Label
 
 func _on_photo_camera_photo_taken(photo: ImageTexture, subject_data: Array[SubjectInfo]) -> void:
+	last_photo_taken.visible = true
 	last_photo_taken.texture = photo
 	last_photo_taken.custom_minimum_size.x = photo.get_size().x *.25
 	last_photo_taken.custom_minimum_size.y = photo.get_size().y *.25
@@ -29,6 +30,7 @@ last_photo_taken = NodePath("TextureRect")
 subjects = NodePath("Label2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0

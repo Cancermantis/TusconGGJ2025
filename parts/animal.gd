@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	position = Globals.keep_in_bubble(position)
 	var move := heading #* delta
 	velocity = Vector3(move.x, velocity.y, move.y)
+	update_facing()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -31,3 +32,11 @@ func pick_heading() -> void:
 	else:
 		sprite.play()
 		heading = 2 * (Vector2(randf(), randf()) - Vector2.ONE * 0.5)
+
+func update_facing() -> void:
+	if heading == Vector2.ZERO:
+		return
+	var player_to_self_3d := Globals.player.position - position
+	var player_to_self := Vector2(player_to_self_3d.x, player_to_self_3d.z)
+	var angle = heading.angle_to(player_to_self)
+	sprite.flip_h = angle < 0
