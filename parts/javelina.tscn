@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://bo74fqhp8syq6"]
 
-[ext_resource type="Script" path="res://parts/javelina.gd" id="1_e051c"]
-[ext_resource type="Texture2D" uid="uid://cll7gtph3gmix" path="res://assets/javelina.png" id="1_na1d1"]
+[ext_resource type="Script" path="res://parts/animal.gd" id="1_e051c"]
+[ext_resource type="Texture2D" uid="uid://dxkq866jbovhy" path="res://assets/javelina.webp" id="2_xpt64"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l50pp"]
-atlas = ExtResource("1_na1d1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsqvg"]
+atlas = ExtResource("2_xpt64")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pto8x"]
-atlas = ExtResource("1_na1d1")
-region = Rect2(96, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_whff0"]
+atlas = ExtResource("2_xpt64")
+region = Rect2(0, 96, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d13l7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l50pp")
+"texture": SubResource("AtlasTexture_bsqvg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pto8x")
+"texture": SubResource("AtlasTexture_whff0")
 }],
 "loop": true,
 "name": &"default",
@@ -36,7 +36,8 @@ script = ExtResource("1_e051c")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_d13l7")
-frame_progress = 0.127948
+frame = 1
+frame_progress = 0.805665
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

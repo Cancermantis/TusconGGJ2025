@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqfonpnki65en"]
+[gd_scene load_steps=15 format=3 uid="uid://bqfonpnki65en"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
 [ext_resource type="Shader" path="res://parts/terrain.gdshader" id="2_m5cn3"]
 [ext_resource type="Script" path="res://parts/terrain.gd" id="4_bo63a"]
 [ext_resource type="PackedScene" uid="uid://bo74fqhp8syq6" path="res://parts/javelina.tscn" id="5_1l5pd"]
+[ext_resource type="PackedScene" uid="uid://cp5ykyvecc23s" path="res://parts/coyote.tscn" id="6_iq0qv"]
+[ext_resource type="PackedScene" uid="uid://cl8syr5lxjb07" path="res://parts/roadrunner.tscn" id="7_85icd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhjj"]
 
@@ -59,5 +61,11 @@ material_override = SubResource("ShaderMaterial_s3pcf")
 
 [node name="Javelina" parent="." instance=ExtResource("5_1l5pd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01533, 2.96472, 27.2532)
+
+[node name="Coyote" parent="." instance=ExtResource("6_iq0qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29986, 2.75742, 24.9916)
+
+[node name="Roadrunner" parent="." instance=ExtResource("7_85icd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7222, 2.31951, 24.1964)
 
 [editable path="StaticBody3D/CollisionShape3D/Terrain"]
