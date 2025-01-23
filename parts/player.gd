@@ -5,6 +5,7 @@ var bubble_size := 49
 const SPEED := 5.0
 const JUMP_VELOCITY := 4.5
 @export var mouse_sensitivity := 5e-3
+@onready var camera: Camera3D = $Camera3D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -13,7 +14,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var mouse_delta := Input.get_last_mouse_velocity()
 	rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
-	#downcast.
+	self.camera.rotate_x(-mouse_delta.y * mouse_sensitivity * delta)
+	self.camera.rotation_degrees.x = clamp(self.camera.rotation_degrees.x, -80, 80)
 	var distance := position.length()
 	if distance > bubble_size:
 		position = position.normalized() * bubble_size
