@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SubjectInfo" load_steps=2 format=3 uid="uid://msuwd8qow58m"]
+
+[ext_resource type="Script" path="res://parts/subject_info.gd" id="1_kcwj4"]
+
+[resource]
+script = ExtResource("1_kcwj4")
+name = "Roadrunner"
+description = ""

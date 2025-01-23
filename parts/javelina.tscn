@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo74fqhp8syq6"]
+[gd_scene load_steps=9 format=3 uid="uid://cdsq00jes8t8f"]
 
 [ext_resource type="Script" path="res://parts/animal.gd" id="1_e051c"]
 [ext_resource type="Texture2D" uid="uid://dxkq866jbovhy" path="res://assets/javelina.webp" id="2_xpt64"]
+[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://parts/photo_subject.tscn" id="3_yvfn4"]
+[ext_resource type="Resource" uid="uid://ckgtt0w83o8xm" path="res://data/javelina.tres" id="4_1u1km"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsqvg"]
 atlas = ExtResource("2_xpt64")
@@ -42,3 +44,8 @@ frame_progress = 0.805665
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_3mf38")
+
+[node name="SubjectInfo" parent="." instance=ExtResource("3_yvfn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 0, 0)
+aabb = AABB(-0.22797, -0.362496, -0.410326, 0.781135, 0.792377, 0.820649)
+subject_data = ExtResource("4_1u1km")

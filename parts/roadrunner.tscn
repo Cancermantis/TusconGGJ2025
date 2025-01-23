@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl8syr5lxjb07"]
+[gd_scene load_steps=11 format=3 uid="uid://7jnxln00tquv"]
 
 [ext_resource type="Script" path="res://parts/animal.gd" id="1_6v6mk"]
 [ext_resource type="Texture2D" uid="uid://cwdo24xnsip0f" path="res://assets/roadrunner.webp" id="2_fjuc5"]
+[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://parts/photo_subject.tscn" id="3_vgmni"]
+[ext_resource type="Resource" uid="uid://msuwd8qow58m" path="res://data/roadrunner.tres" id="4_neghg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iah8s"]
 atlas = ExtResource("2_fjuc5")
@@ -54,3 +56,8 @@ frame_progress = 0.0892035
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.110234, 0, 0)
 shape = SubResource("SphereShape3D_3mf38")
+
+[node name="SubjectInfo" parent="." instance=ExtResource("3_vgmni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+aabb = AABB(-0.216464, -0.169601, -0.221392, 0.432926, 0.406586, 0.442781)
+subject_data = ExtResource("4_neghg")

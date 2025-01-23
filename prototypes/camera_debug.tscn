@@ -31,6 +31,8 @@ subjects = NodePath("Label2")
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource("1_ve26y")
 expand_mode = 1
 
