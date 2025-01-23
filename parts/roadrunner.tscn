@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl8syr5lxjb07"]
+
+[ext_resource type="Script" path="res://parts/animal.gd" id="1_6v6mk"]
+[ext_resource type="Texture2D" uid="uid://cwdo24xnsip0f" path="res://assets/roadrunner.webp" id="2_fjuc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iah8s"]
+atlas = ExtResource("2_fjuc5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clbse"]
+atlas = ExtResource("2_fjuc5")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3nyx"]
+atlas = ExtResource("2_fjuc5")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7jtk"]
+atlas = ExtResource("2_fjuc5")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d13l7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iah8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clbse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3nyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7jtk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3mf38"]
+custom_solver_bias = 1.0
+radius = 0.27
+
+[node name="Roadrunner" type="CharacterBody3D"]
+script = ExtResource("1_6v6mk")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_d13l7")
+frame_progress = 0.0892035
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.110234, 0, 0)
+shape = SubResource("SphereShape3D_3mf38")
