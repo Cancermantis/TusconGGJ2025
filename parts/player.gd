@@ -7,7 +7,7 @@ const JUMP_VELOCITY := 4.5
 @onready var camera: Camera3D = $Camera3D
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pass
 
 func _process(delta: float) -> void:
 	var mouse_delta := Input.get_last_mouse_velocity()
