@@ -15,11 +15,15 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://globals.gd"
+
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]
