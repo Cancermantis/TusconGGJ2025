@@ -49,7 +49,8 @@ radius = 0.27
 script = ExtResource("1_6v6mk")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-billboard = 2
+billboard = 1
+texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_d13l7")
 frame_progress = 0.0892035
 

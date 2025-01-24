@@ -92,7 +92,6 @@ script = ExtResource("1_ne3xo")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 2
-position = Vector2(0, -95)
-scale = Vector2(0.99, 0.99)
+position = Vector2(0, -96)
 sprite_frames = SubResource("SpriteFrames_jk21s")
 animation = &"camera_down"
