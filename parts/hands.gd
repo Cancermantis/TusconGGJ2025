@@ -4,6 +4,10 @@ extends Node2D
 @onready var camera_display: Sprite2D = $Control/CameraDisplay
 @onready var control: Node2D = $Control
 @onready var sprite: AnimatedSprite2D = $Control/Sprite
+@onready var hands_audio_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var shutter_sound
+@onready var raise_sound
+@onready var lower_sound
 
 func _ready() -> void:
 	pass # Replace with function body.

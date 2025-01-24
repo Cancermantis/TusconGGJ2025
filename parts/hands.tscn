@@ -102,3 +102,5 @@ texture_filter = 2
 position = Vector2(0, -96)
 sprite_frames = SubResource("SpriteFrames_jk21s")
 animation = &"camera_down"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
