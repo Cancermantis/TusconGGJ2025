@@ -11,8 +11,10 @@ signal photo_taken(photo : ImageTexture, subject_data)
 var subjects: Array[PhotoSubject]
 
 func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("take_photo")):
-		take_photo()
+	if event.is_action_pressed("tool_use"):
+		match Globals.tool:
+			Globals.Tool.CAMERA:
+				take_photo()
 
 func take_photo():
 	if(Globals.player == null):

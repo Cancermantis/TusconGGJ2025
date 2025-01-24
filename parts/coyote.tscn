@@ -51,7 +51,8 @@ script = ExtResource("1_djrnc")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
-billboard = 2
+billboard = 1
+texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_d13l7")
 frame_progress = 0.802642
 
