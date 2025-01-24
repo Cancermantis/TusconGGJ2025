@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdsq00jes8t8f"]
+[gd_scene load_steps=13 format=3 uid="uid://cdsq00jes8t8f"]
 
 [ext_resource type="Script" path="res://parts/animal.gd" id="1_e051c"]
 [ext_resource type="Texture2D" uid="uid://dxkq866jbovhy" path="res://assets/javelina.webp" id="2_xpt64"]
+[ext_resource type="Texture2D" uid="uid://dfscs3kw5o2qc" path="res://assets/javalina_run_away.webp" id="3_fvme6"]
 [ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://parts/photo_subject.tscn" id="3_yvfn4"]
 [ext_resource type="Resource" uid="uid://ckgtt0w83o8xm" path="res://data/javelina.tres" id="4_1u1km"]
 [ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://parts/sound_receiver.tscn" id="5_74d2m"]
@@ -12,6 +13,14 @@ region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whff0"]
 atlas = ExtResource("2_xpt64")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7rye"]
+atlas = ExtResource("3_fvme6")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iwte"]
+atlas = ExtResource("3_fvme6")
 region = Rect2(0, 96, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d13l7"]
@@ -25,6 +34,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7rye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iwte")
+}],
+"loop": true,
+"name": &"run_away",
 "speed": 5.0
 }]
 
@@ -41,8 +61,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 1
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_d13l7")
-frame = 1
-frame_progress = 0.805665
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

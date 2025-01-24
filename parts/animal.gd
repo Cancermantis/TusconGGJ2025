@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var flee_distance: float = 20.0
 @export var move_speed = 8.0
+@export var debug_flipping = false
 
 var change_delay: float
 var heading: Vector2
@@ -46,31 +47,33 @@ func pick_heading() -> void:
 func update_facing() -> void:
 	if heading == Vector2.ZERO:
 		return
-	var player_to_self_3d := Globals.player.position - position
+	var player_to_self_3d := Globals.player.global_position - global_position
 	var player_to_self := Vector2(player_to_self_3d.x, player_to_self_3d.z)
 	var angle = heading.angle_to(player_to_self)
 	sprite.flip_h = angle < 0
+	if(debug_flipping):
+		print("Angle to player:", angle)
 
 func flee(delta: float) -> void:
 	var distance = Globals.player.global_position.distance_to(self.global_position)
 	if(distance >= flee_distance):
-		pick_heading()
 		velocity = Vector3.ZERO
+		pick_heading()
 		$SoundReceiver.triggered = false
 		state = roam
 		return
 	
 	position = Globals.keep_in_bubble(position)
-	var direction = Globals.player.global_position.direction_to(self.global_position)
+	var direction = self.global_position.direction_to(Globals.player.global_position)
 	direction.y = 0.0
-	direction = direction.normalized()
+	direction = -direction.normalized()
 	
 	var desired_velocity = direction * move_speed
 	desired_velocity.y = velocity.y
 	velocity = desired_velocity
-	heading = Vector2(velocity.x, velocity.z)
+	heading = Vector2(direction.x, direction.z)
 	update_facing()
 
 func _on_sound_received() -> void:
-	sprite.play()
+	sprite.play("run_away")
 	state = flee
