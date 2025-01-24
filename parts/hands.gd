@@ -2,7 +2,6 @@ class_name Hands
 extends Node2D
 
 @onready var camera_display: Sprite2D = $Control/CameraDisplay
-@onready var camera_feed: TextureRect = $Control/CameraFeed
 @onready var control: Node2D = $Control
 @onready var sprite: AnimatedSprite2D = $Control/Sprite
 @onready var hands_audio_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -32,7 +31,6 @@ func _input(event: InputEvent) -> void:
 			"camera_up":
 				Globals.tool = Globals.Tool.NONE
 				camera_display.visible = false
-				camera_feed.visible = false
 				sprite.play("camera_down")
 				await sprite.animation_finished
 				control.visible = false
@@ -42,4 +40,3 @@ func _input(event: InputEvent) -> void:
 				await sprite.animation_finished
 				Globals.tool = Globals.Tool.CAMERA
 				camera_display.visible = true
-				camera_feed.visible = true

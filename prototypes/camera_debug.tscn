@@ -39,4 +39,5 @@ texture = ExtResource("1_ve26y")
 expand_mode = 1
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 layout_mode = 2
