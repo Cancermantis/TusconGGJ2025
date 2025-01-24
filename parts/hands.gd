@@ -15,9 +15,12 @@ func _input(event: InputEvent) -> void:
 			await sprite.animation_finished
 		match sprite.animation:
 			"camera_up":
+				Globals.tool = Globals.Tool.NONE
 				sprite.play("camera_down")
 				await sprite.animation_finished
 				sprite.hide()
 			_:
 				sprite.play("camera_up")
 				sprite.visible = true
+				await sprite.animation_finished
+				Globals.tool = Globals.Tool.CAMERA
