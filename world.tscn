@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=18 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://scenes/player.tscn" id="1_ik0qd"]
@@ -10,6 +10,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
 [ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://scenes/coyote.tscn" id="6_iq0qv"]
 [ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://scenes/roadrunner.tscn" id="7_85icd"]
+[ext_resource type="PackedScene" uid="uid://cggluns1b1g25" path="res://scenes/saguaro.tscn" id="11_sona3"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
 sky_material = ExtResource("3_lgo5p")
@@ -72,5 +73,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29986, 2.75742, 24.9916)
 
 [node name="Roadrunner" parent="." instance=ExtResource("7_85icd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7222, 2.31951, 24.1964)
+
+[node name="Plants" type="Node" parent="."]
+
+[node name="Saguaro" parent="Plants" instance=ExtResource("11_sona3")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -18.5648, 7.35437, 5.09546)
 
 [editable path="StaticBody3D/CollisionShape3D/Terrain"]
