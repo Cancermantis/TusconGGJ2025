@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
-[ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
+[ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://scenes/player.tscn" id="1_ik0qd"]
 [ext_resource type="Script" path="res://world.gd" id="1_xyhbd"]
-[ext_resource type="Shader" path="res://parts/terrain.gdshader" id="2_m5cn3"]
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="2_m5cn3"]
 [ext_resource type="Material" uid="uid://b3y4aelmrpynk" path="res://shaders/sky.tres" id="3_lgo5p"]
-[ext_resource type="Script" path="res://parts/terrain.gd" id="4_bo63a"]
-[ext_resource type="PackedScene" uid="uid://cdsq00jes8t8f" path="res://parts/javelina.tscn" id="5_1l5pd"]
+[ext_resource type="Script" path="res://scripts/terrain.gd" id="4_bo63a"]
+[ext_resource type="PackedScene" uid="uid://cdsq00jes8t8f" path="res://scenes/javelina.tscn" id="5_1l5pd"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
-[ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://parts/coyote.tscn" id="6_iq0qv"]
-[ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://parts/roadrunner.tscn" id="7_85icd"]
+[ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://scenes/coyote.tscn" id="6_iq0qv"]
+[ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://scenes/roadrunner.tscn" id="7_85icd"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
 sky_material = ExtResource("3_lgo5p")

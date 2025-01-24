@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://lmaf52lg6p1s"]
 
-[ext_resource type="Script" path="res://parts/photo_subject.gd" id="1_st3na"]
+[ext_resource type="Script" path="res://scripts/photo_subject.gd" id="1_st3na"]
 
 [node name="SubjectInfo" type="VisibleOnScreenNotifier3D" groups=["photo_subject"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.605, 0)

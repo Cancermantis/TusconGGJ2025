@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://cdsq00jes8t8f"]
 
-[ext_resource type="Script" path="res://parts/animal.gd" id="1_e051c"]
+[ext_resource type="Script" path="res://scripts/animal.gd" id="1_e051c"]
 [ext_resource type="Texture2D" uid="uid://dxkq866jbovhy" path="res://assets/javelina.webp" id="2_xpt64"]
 [ext_resource type="Texture2D" uid="uid://dfscs3kw5o2qc" path="res://assets/javalina_run_away.webp" id="3_fvme6"]
-[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://parts/photo_subject.tscn" id="3_yvfn4"]
+[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_yvfn4"]
 [ext_resource type="Resource" uid="uid://ckgtt0w83o8xm" path="res://data/javelina.tres" id="4_1u1km"]
-[ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://parts/sound_receiver.tscn" id="5_74d2m"]
+[ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="5_74d2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsqvg"]
 atlas = ExtResource("2_xpt64")

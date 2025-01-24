@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
 [ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="2_78wtc"]
-[ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://parts/hands.tscn" id="3_e615s"]
-[ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://parts/photo_camera.tscn" id="3_qq3wa"]
+[ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://scenes/hands.tscn" id="3_e615s"]
+[ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://scenes/photo_camera.tscn" id="3_qq3wa"]
 
 [sub_resource type="GDScript" id="GDScript_gm78l"]
 script/source = "extends CanvasLayer

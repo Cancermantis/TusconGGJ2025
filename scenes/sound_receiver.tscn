@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dchjl5klwbl8e"]
 
-[ext_resource type="Script" path="res://parts/sound_receiver.gd" id="1_0fg4j"]
+[ext_resource type="Script" path="res://scripts/sound_receiver.gd" id="1_0fg4j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fotxa"]
 size = Vector2(20, 20)

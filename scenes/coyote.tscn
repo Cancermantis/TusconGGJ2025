@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://2yyw8fc3t7xm"]
 
-[ext_resource type="Script" path="res://parts/animal.gd" id="1_djrnc"]
+[ext_resource type="Script" path="res://scripts/animal.gd" id="1_djrnc"]
 [ext_resource type="Texture2D" uid="uid://byn5cjygcl4mu" path="res://assets/coyote.webp" id="2_7pyfw"]
-[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://parts/photo_subject.tscn" id="3_8bsnv"]
+[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_8bsnv"]
 [ext_resource type="Resource" uid="uid://cyrasese2ojun" path="res://data/coyote.tres" id="4_qgr2s"]
-[ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://parts/sound_receiver.tscn" id="5_inewr"]
+[ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="5_inewr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljewa"]
 atlas = ExtResource("2_7pyfw")
