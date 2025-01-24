@@ -2,6 +2,7 @@ class_name Hands
 extends Node2D
 
 @onready var camera_display: Sprite2D = $Control/CameraDisplay
+@onready var camera_feed: TextureRect = $Control/CameraFeed
 @onready var control: Node2D = $Control
 @onready var sprite: AnimatedSprite2D = $Control/Sprite
 @onready var hands_audio_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -9,15 +10,18 @@ extends Node2D
 @onready var raise_sound
 @onready var lower_sound
 
+@export var viewport_texture: SubViewport
+
 func _ready() -> void:
-	pass # Replace with function body.
+	#camera_display.texture = viewport_texture
+	pass
 
 func _process(_delta: float) -> void:
 	# TODO This only appears once the camera is full up.
 	# TODO Could manually animate the Control wrapper and skip the frames.
 	# TODO Or could make the screen black on all the top frame.
 	if camera_display.visible:
-		var image := ImageTexture.create_from_image(get_viewport().get_texture().get_image())
+		var image := viewport_texture.get_texture()
 		camera_display.texture = image
 
 func _input(event: InputEvent) -> void:
@@ -28,6 +32,7 @@ func _input(event: InputEvent) -> void:
 			"camera_up":
 				Globals.tool = Globals.Tool.NONE
 				camera_display.visible = false
+				camera_feed.visible = false
 				sprite.play("camera_down")
 				await sprite.animation_finished
 				control.visible = false
@@ -37,3 +42,4 @@ func _input(event: InputEvent) -> void:
 				await sprite.animation_finished
 				Globals.tool = Globals.Tool.CAMERA
 				camera_display.visible = true
+				camera_feed.visible = true

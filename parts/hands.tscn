@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxcj8ny767gy8"]
+[gd_scene load_steps=14 format=3 uid="uid://colfj1x4cv2ae"]
 
 [ext_resource type="Texture2D" uid="uid://dlmxvovtfkxua" path="res://assets/camera.webp" id="1_grsje"]
 [ext_resource type="Script" path="res://parts/hands.gd" id="1_ne3xo"]
@@ -92,6 +92,13 @@ script = ExtResource("1_ne3xo")
 [node name="Control" type="Node2D" parent="."]
 visible = false
 
+[node name="CameraFeed" type="TextureRect" parent="Control"]
+visible = false
+offset_left = -29.0
+offset_top = -61.0
+offset_right = 12.0
+offset_bottom = -32.0
+
 [node name="CameraDisplay" type="Sprite2D" parent="Control"]
 visible = false
 position = Vector2(-12, -47)
@@ -101,6 +108,8 @@ scale = Vector2(0.11, 0.11)
 texture_filter = 2
 position = Vector2(0, -96)
 sprite_frames = SubResource("SpriteFrames_jk21s")
-animation = &"camera_down"
+animation = &"camera_up"
+frame = 3
+frame_progress = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

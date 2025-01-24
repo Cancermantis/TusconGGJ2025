@@ -1,22 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=17 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
 [ext_resource type="Script" path="res://world.gd" id="1_xyhbd"]
-[ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://parts/photo_camera.tscn" id="2_c0400"]
 [ext_resource type="Shader" path="res://parts/terrain.gdshader" id="2_m5cn3"]
+[ext_resource type="Material" uid="uid://b3y4aelmrpynk" path="res://shaders/sky.tres" id="3_lgo5p"]
 [ext_resource type="Script" path="res://parts/terrain.gd" id="4_bo63a"]
 [ext_resource type="PackedScene" uid="uid://cdsq00jes8t8f" path="res://parts/javelina.tscn" id="5_1l5pd"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
-[ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="6_88vp4"]
 [ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://parts/coyote.tscn" id="6_iq0qv"]
 [ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://parts/roadrunner.tscn" id="7_85icd"]
-[ext_resource type="PackedScene" uid="uid://cxcj8ny767gy8" path="res://parts/hands.tscn" id="12_btx6p"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhjj"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
-sky_material = SubResource("ProceduralSkyMaterial_jyhjj")
+sky_material = ExtResource("3_lgo5p")
 
 [sub_resource type="Environment" id="Environment_ns7kq"]
 background_mode = 2
@@ -48,9 +44,6 @@ script = ExtResource("1_xyhbd")
 [node name="Player" parent="." instance=ExtResource("1_ik0qd")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 0)
 
-[node name="PhotoCamera" parent="Player" node_paths=PackedStringArray("player_node") instance=ExtResource("2_c0400")]
-player_node = NodePath("..")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.926016, 0.377485, 0, -0.377485, 0.926016, 0, 0, 0)
 
@@ -79,14 +72,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29986, 2.75742, 24.9916)
 
 [node name="Roadrunner" parent="." instance=ExtResource("7_85icd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7222, 2.31951, 24.1964)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["camera_hidden"]]
-
-[node name="CameraDebug" parent="CanvasLayer" instance=ExtResource("6_88vp4")]
-
-[node name="Hands" parent="CanvasLayer" instance=ExtResource("12_btx6p")]
-position = Vector2(240, 270)
-
-[connection signal="photo_taken" from="Player/PhotoCamera" to="CanvasLayer/CameraDebug" method="_on_photo_camera_photo_taken"]
 
 [editable path="StaticBody3D/CollisionShape3D/Terrain"]

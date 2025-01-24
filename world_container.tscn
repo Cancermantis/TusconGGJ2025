@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwvtgy22th56p"]
+[gd_scene load_steps=7 format=3 uid="uid://bwvtgy22th56p"]
 
 [ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
 [ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="2_78wtc"]
+[ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://parts/hands.tscn" id="3_e615s"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://parts/photo_camera.tscn" id="3_qq3wa"]
 
+[sub_resource type="GDScript" id="GDScript_gm78l"]
+script/source = "extends CanvasLayer
+
+@onready var container: SubViewport = $WorldContainer
+
+func _input(event: InputEvent) -> void:
+	container.push_input(event)
+
+func _unhandled_input(event: InputEvent) -> void:
+	container.push_unhandled_input(event)
+"
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_sscjo"]
-viewport_path = NodePath("WorldContainer")
+viewport_path = NodePath("CanvasLayer/WorldContainer")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,13 +28,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WorldContainer" type="SubViewport" parent="."]
-own_world_3d = true
-size = Vector2i(540, 360)
-
-[node name="Game" parent="WorldContainer" instance=ExtResource("1_l5tyx")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_gm78l")
+
+[node name="WorldContainer" type="SubViewport" parent="CanvasLayer"]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(480, 360)
+render_target_update_mode = 4
+
+[node name="Game" parent="CanvasLayer/WorldContainer" instance=ExtResource("1_l5tyx")]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 texture_filter = 1
@@ -29,6 +45,8 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -180.0
+offset_right = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -36,10 +54,16 @@ size_flags_vertical = 4
 texture = SubResource("ViewportTexture_sscjo")
 expand_mode = 3
 
-[node name="CameraDebug" parent="CanvasLayer" instance=ExtResource("2_78wtc")]
-metadata/_edit_use_anchors_ = true
+[node name="CameraDebug" parent="CanvasLayer/TextureRect" instance=ExtResource("2_78wtc")]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 1
+offset_right = 48.0
+
+[node name="Hands" parent="CanvasLayer" node_paths=PackedStringArray("viewport_texture") instance=ExtResource("3_e615s")]
+position = Vector2(240, 270)
+viewport_texture = NodePath("../WorldContainer")
 
 [node name="PhotoCamera" parent="CanvasLayer" node_paths=PackedStringArray("viewport") instance=ExtResource("3_qq3wa")]
-viewport = NodePath("../../WorldContainer")
+viewport = NodePath("../WorldContainer")
 
-[connection signal="photo_taken" from="CanvasLayer/PhotoCamera" to="CanvasLayer/CameraDebug" method="_on_photo_camera_photo_taken"]
+[connection signal="photo_taken" from="CanvasLayer/PhotoCamera" to="CanvasLayer/TextureRect/CameraDebug" method="_on_photo_camera_photo_taken"]
