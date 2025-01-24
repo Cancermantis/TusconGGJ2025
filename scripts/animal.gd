@@ -58,6 +58,8 @@ func flee(delta: float) -> void:
 	var distance = Globals.player.global_position.distance_to(self.global_position)
 	if(distance >= flee_distance):
 		velocity = Vector3.ZERO
+		sprite.animation = "default"
+		sprite.stop()
 		pick_heading()
 		$SoundReceiver.triggered = false
 		state = roam
