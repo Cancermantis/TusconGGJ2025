@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://brl6igoivl4hp"]
+
+[ext_resource type="Script" path="res://scripts/plant.gd" id="1_tv0er"]
+[ext_resource type="Texture2D" uid="uid://wuttlp1pt6kt" path="res://assets/saguaro1.webp" id="2_1ueu0"]
+[ext_resource type="Texture2D" uid="uid://dvaomb2y3bjef" path="res://assets/saguaro2.webp" id="3_vb3k7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1ueu0")
+}],
+"loop": true,
+"name": &"saguaro1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vb3k7")
+}],
+"loop": true,
+"name": &"saguaro2",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_imgjy"]
+radius = 0.1
+height = 1.0
+
+[node name="SaguaroSmall" type="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.4, 0)
+script = ExtResource("1_tv0er")
+option = "saguaro1"
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_01m5m")
+animation = &"saguaro1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00102243, 0)
+shape = SubResource("CapsuleShape3D_imgjy")
