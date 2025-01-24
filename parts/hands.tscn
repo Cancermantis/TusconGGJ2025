@@ -89,8 +89,15 @@ animations = [{
 [node name="Hands" type="Node2D"]
 script = ExtResource("1_ne3xo")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Control" type="Node2D" parent="."]
 visible = false
+
+[node name="CameraDisplay" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(-12, -47)
+scale = Vector2(0.11, 0.11)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Control"]
 texture_filter = 2
 position = Vector2(0, -96)
 sprite_frames = SubResource("SpriteFrames_jk21s")
