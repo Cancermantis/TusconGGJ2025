@@ -65,15 +65,6 @@ func flee(delta: float) -> void:
 	direction.y = 0.0
 	direction = direction.normalized()
 	
-	# the more aligned the calculated is with the player's facing, the more we rotate the direction away from that facing
-	var rotation_factor: float = max(direction.dot(-Globals.player.global_basis.z), 0)
-	var left_right = -sign(direction.dot(Globals.player.global_basis.x))
-	if(left_right == 0):
-		left_right = 1
-	
-	print(rotation_factor)
-	#direction = direction.rotated(Vector3.UP, (rotation_factor * flight_angle * left_right))
-	
 	var desired_velocity = direction * move_speed
 	desired_velocity.y = velocity.y
 	velocity = desired_velocity

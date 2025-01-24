@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwvtgy22th56p"]
+
+[ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
+[ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="2_78wtc"]
+[ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://parts/photo_camera.tscn" id="3_qq3wa"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sscjo"]
+viewport_path = NodePath("WorldContainer")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldContainer" type="SubViewport" parent="."]
+own_world_3d = true
+size = Vector2i(540, 360)
+
+[node name="Game" parent="WorldContainer" instance=ExtResource("1_l5tyx")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("ViewportTexture_sscjo")
+expand_mode = 3
+
+[node name="CameraDebug" parent="CanvasLayer" instance=ExtResource("2_78wtc")]
+metadata/_edit_use_anchors_ = true
+
+[node name="PhotoCamera" parent="CanvasLayer" node_paths=PackedStringArray("viewport") instance=ExtResource("3_qq3wa")]
+viewport = NodePath("../../WorldContainer")
+
+[connection signal="photo_taken" from="CanvasLayer/PhotoCamera" to="CanvasLayer/CameraDebug" method="_on_photo_camera_photo_taken"]
