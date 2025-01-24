@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=20 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://parts/player.tscn" id="1_ik0qd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="6_88vp4"]
 [ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://parts/coyote.tscn" id="6_iq0qv"]
 [ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://parts/roadrunner.tscn" id="7_85icd"]
+[ext_resource type="PackedScene" uid="uid://cxcj8ny767gy8" path="res://parts/hands.tscn" id="12_btx6p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhjj"]
 
@@ -82,6 +83,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7222, 2.31951, 24.1964)
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["camera_hidden"]]
 
 [node name="CameraDebug" parent="CanvasLayer" instance=ExtResource("6_88vp4")]
+
+[node name="Hands" parent="CanvasLayer" instance=ExtResource("12_btx6p")]
+position = Vector2(240, 270)
 
 [connection signal="photo_taken" from="Player/PhotoCamera" to="CanvasLayer/CameraDebug" method="_on_photo_camera_photo_taken"]
 
