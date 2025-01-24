@@ -39,7 +39,7 @@ func take_photo():
 	var subject_data: Array[SubjectInfo] #null for now; will be populated with actual information later
 	for subject: PhotoSubject in subjects:
 		var distance = subject.global_position.distance_to(player_node.global_position)
-		if(subject.subject_data.max_distance < distance):
+		if(subject.subject_data.cull_distance < distance):
 			continue
 		subject_data.append(subject.subject_data)
 	

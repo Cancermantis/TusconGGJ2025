@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://7jnxln00tquv"]
+[gd_scene load_steps=12 format=3 uid="uid://7jnxln00tquv"]
 
 [ext_resource type="Script" path="res://parts/animal.gd" id="1_6v6mk"]
+[ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://parts/sound_receiver.tscn" id="2_ew75q"]
 [ext_resource type="Texture2D" uid="uid://cwdo24xnsip0f" path="res://assets/roadrunner.webp" id="2_fjuc5"]
 [ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://parts/photo_subject.tscn" id="3_vgmni"]
 [ext_resource type="Resource" uid="uid://msuwd8qow58m" path="res://data/roadrunner.tres" id="4_neghg"]
@@ -47,6 +48,7 @@ radius = 0.27
 
 [node name="Roadrunner" type="CharacterBody3D"]
 script = ExtResource("1_6v6mk")
+move_speed = 8.8
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2
@@ -61,3 +63,7 @@ shape = SubResource("SphereShape3D_3mf38")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 aabb = AABB(-0.216464, -0.169601, -0.221392, 0.432926, 0.406586, 0.442781)
 subject_data = ExtResource("4_neghg")
+
+[node name="SoundReceiver" parent="." instance=ExtResource("2_ew75q")]
+
+[connection signal="sound_received" from="SoundReceiver" to="." method="_on_sound_received"]
