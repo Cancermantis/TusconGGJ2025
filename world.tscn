@@ -41,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 0.926016, 0.377485, 0, -0.377485, 0.926016, 
 environment = SubResource("Environment_ns7kq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -12.6148, 0)
 script = ExtResource("4_bo63a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

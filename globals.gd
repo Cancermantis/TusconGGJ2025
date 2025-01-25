@@ -1,6 +1,6 @@
 extends Node
 
-var bubble_size := 49
+var bubble_size := 99
 var player: Player
 var tool := Tool.NONE
 
