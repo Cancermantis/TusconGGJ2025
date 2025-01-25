@@ -4,12 +4,21 @@ var bubble_size := 99
 var player: Player
 var rng := RandomNumberGenerator.new()
 var seed := 1337
-var tool := Tool.NONE
+var photo_camera: PhotoCamera
+var tool := Tool.NONE:
+	get:
+		return tool
+	set(value):
+		tool = value
+		tool_changed.emit(tool)
+var ui_mode = false
 
 enum Tool {
 	NONE,
 	CAMERA,
 }
+
+signal tool_changed(tool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

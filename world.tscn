@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=15 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://scenes/player.tscn" id="1_ik0qd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cb4i5j1fq75ek" path="res://assets/setpieces/bubbles_fx.tscn" id="8_uaarj"]
 [ext_resource type="PackedScene" uid="uid://cqo2i0wf2cif1" path="res://assets/setpieces/dome.tscn" id="9_stswf"]
 [ext_resource type="PackedScene" uid="uid://ciesp75prk3ng" path="res://assets/setpieces/landing_pad.tscn" id="10_8vo4k"]
+[ext_resource type="PackedScene" uid="uid://bfm6uk35e3ahl" path="res://assets/audio/audioresources/Environment_Audio.tscn" id="19_81lwx"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
 sky_material = ExtResource("3_lgo5p")
@@ -56,6 +57,8 @@ occluder = ExtResource("6_5eijw")
 [node name="LandingPad" parent="WorldBubble" instance=ExtResource("10_8vo4k")]
 
 [node name="Plants" type="Node3D" parent="."]
+
+[node name="EnvironmentAudio" parent="." instance=ExtResource("19_81lwx")]
 
 [editable path="WorldBubble/CollisionShape3D/Terrain"]
 [editable path="WorldBubble/LandingPad"]

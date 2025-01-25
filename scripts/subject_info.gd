@@ -8,3 +8,4 @@ class_name SubjectInfo
 # it won't be considered a subject of the current photo
 @export var cull_distance: float = 8.0
 @export var description: String #could be used for tooltips
+@export var icon: Texture2D

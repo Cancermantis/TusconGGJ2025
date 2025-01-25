@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://csobghoi5ix8p"]
+
+[ext_resource type="Script" path="res://scripts/UI/end_screen.gd" id="1_skg4u"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_skg4u")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="AnimalListHeader" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Animals Photographed"
+horizontal_alignment = 1
+
+[node name="AnimalList" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="UnphotographedCount" type="PanelContainer" parent="PanelContainer/VBoxContainer/AnimalList"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+tooltip_text = "Number of animal types in the Biosphere that weren't captured on film"
+
+[node name="Count" type="Label" parent="PanelContainer/VBoxContainer/AnimalList/UnphotographedCount"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="HScrollBar" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Album" type="HFlowContainer" parent="PanelContainer/VBoxContainer/HScrollBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+last_wrap_alignment = 1
+
+[node name="EndButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "End"
+
+[node name="PhotoPreview" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Photo" type="TextureRect" parent="PhotoPreview"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 460.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitPreview" type="Button" parent="PhotoPreview"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 24.0
+offset_bottom = 31.0
+text = "x"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
+[connection signal="pressed" from="PhotoPreview/ExitPreview" to="." method="_on_exit_preview_pressed"]

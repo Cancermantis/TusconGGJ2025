@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="SubjectInfo" load_steps=2 format=3 uid="uid://ckgtt0w83o8xm"]
+[gd_resource type="Resource" script_class="SubjectInfo" load_steps=3 format=3 uid="uid://ckgtt0w83o8xm"]
 
 [ext_resource type="Script" path="res://scripts/subject_info.gd" id="1_i4jfh"]
+[ext_resource type="Texture2D" uid="uid://d1u1sk0m7aqcq" path="res://assets/icon_javelina.webp" id="1_t3hnd"]
 
 [resource]
 script = ExtResource("1_i4jfh")
 name = "Javelina"
-description = ""
+cull_distance = 8.0
+description = "Not a pig + doesn't fly + W"
+icon = ExtResource("1_t3hnd")

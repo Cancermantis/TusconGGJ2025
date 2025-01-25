@@ -22,6 +22,3 @@ area = SubResource("CylinderShape3D_pteol")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
-
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
-current = true

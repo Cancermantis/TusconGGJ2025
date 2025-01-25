@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=6 format=3 uid="uid://dgbawrcgpwft1"]
+
+[ext_resource type="AudioStream" uid="uid://cos7737kjsd5x" path="res://assets/audio/Obj_Camera_Shutter_Hit_01.wav" id="1_xydus"]
+[ext_resource type="AudioStream" uid="uid://sm5sk4a1ieso" path="res://assets/audio/Obj_Camera_Shutter_Hit_02.wav" id="2_sjnhg"]
+[ext_resource type="AudioStream" uid="uid://cs7lrcu6uouud" path="res://assets/audio/Obj_Camera_Shutter_Hit_03.wav" id="3_53gaf"]
+[ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="4_6cqlf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w8vl1"]
+streams_count = 3
+stream_0/stream = ExtResource("1_xydus")
+stream_1/stream = ExtResource("2_sjnhg")
+stream_2/stream = ExtResource("3_53gaf")
+
+[resource]
+script = ExtResource("4_6cqlf")
+Sound = SubResource("AudioStreamRandomizer_w8vl1")
+VoiceLimit = 6
+AudioBus = "Hero"
+Attenuation = 1
+MaxDistance = 0.0
+PlaybackPitch = 1.0
+MaxPolyphony = 1.0
