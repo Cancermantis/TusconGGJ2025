@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=21 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://scenes/player.tscn" id="1_ik0qd"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d4g1eelu1nh5i" path="res://scenes/pear.tscn" id="11_1jq7s"]
 [ext_resource type="PackedScene" uid="uid://cggluns1b1g25" path="res://scenes/saguaro.tscn" id="11_sona3"]
 [ext_resource type="PackedScene" uid="uid://brl6igoivl4hp" path="res://scenes/saguaro_small.tscn" id="12_aekhh"]
+[ext_resource type="PackedScene" uid="uid://chl8swj53rawe" path="res://scenes/cholla.tscn" id="14_d8wio"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
 sky_material = ExtResource("3_lgo5p")
@@ -77,6 +78,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77802, 13.3048, -29.4137)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6879, 2.31948, 24.1964)
 
 [node name="Plants" type="Node" parent="."]
+
+[node name="Cholla" type="Node3D" parent="Plants"]
+
+[node name="Cholla1" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.37518, 2.74071, 19.5875)
+
+[node name="Cholla2" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.23628, 3.50072, 25.0532)
+option = "cholla2"
+
+[node name="Cholla3" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(2.13505, 0, -2.1075, 0, 3, 0, 2.1075, 0, 2.13505, -1.86781, 3.77046, 34.2392)
+
+[node name="Cholla4" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(2.13505, 0, -2.1075, 0, 3, 0, 2.1075, 0, 2.13505, -7.74366, 4.40554, 36.1191)
+option = "cholla2"
+
+[node name="Cholla5" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(-1.46367, 0, -2.61872, 0, 3, 0, 2.61872, 0, -1.46367, -2.25312, 4.26592, 36.6898)
+
+[node name="Cholla6" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(-1.46367, 0, -2.61872, 0, 3, 0, 2.61872, 0, -1.46367, -9.8437, 3.82787, 33.0799)
+option = "cholla2"
+
+[node name="Cholla7" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(-1.13832, 0, 2.77565, 0, 3, 0, -2.77565, 0, -1.13832, -31.24, 3.23629, 27.3218)
+option = "cholla2"
+
+[node name="Cholla8" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(1.13977, 0, 2.77505, 0, 3, 0, -2.77505, 0, 1.13977, -24.3986, 2.47359, 19.7945)
+
+[node name="Cholla9" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(1.13977, 0, 2.77505, 0, 3, 0, -2.77505, 0, 1.13977, -19.9202, 2.98818, 24.5177)
+option = "cholla2"
+
+[node name="Cholla10" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(2.97825, 0, -0.360566, 0, 3, 0, 0.360566, 0, 2.97825, -21.9851, 2.65221, 19.2212)
+
+[node name="Cholla11" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(2.97825, 0, -0.360566, 0, 3, 0, 0.360566, 0, 2.97825, -22.4449, 2.98586, 27.6139)
+option = "cholla2"
+
+[node name="Cholla12" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(-0.320823, 0, 2.9828, 0, 3, 0, -2.9828, 0, -0.320823, 16.1343, 3.48275, 38.6017)
+
+[node name="Cholla13" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(-0.320823, 0, 2.9828, 0, 3, 0, -2.9828, 0, -0.320823, 19.4353, 3.50844, 39.5133)
+option = "cholla2"
+
+[node name="Cholla14" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(2.79, 0, 1.10267, 0, 3, 0, -1.10267, 0, 2.79, 17.9827, 3.34624, 36.3066)
+
+[node name="Cholla15" parent="Plants/Cholla" instance=ExtResource("14_d8wio")]
+transform = Transform3D(2.79, 0, 1.10267, 0, 3, 0, -1.10267, 0, 2.79, 18.6064, 4.49678, 43.4385)
+option = "cholla2"
 
 [node name="Pear" type="Node3D" parent="Plants"]
 
