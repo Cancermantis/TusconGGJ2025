@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://shaders/bubble_particle.gdshader" id="1_61rgj"]
 
 [resource]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_61rgj")
 shader_parameter/bubble_color = Color(0, 0.483333, 1, 1)
 shader_parameter/fresnel_amount = 1.5

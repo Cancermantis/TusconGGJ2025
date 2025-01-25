@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwvtgy22th56p"]
+[gd_scene load_steps=9 format=3 uid="uid://bwvtgy22th56p"]
 
 [ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
 [ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="2_78wtc"]
+[ext_resource type="PackedScene" uid="uid://buaglns5jw28d" path="res://scenes/UI/prompt_panel.tscn" id="3_dhvti"]
 [ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://scenes/hands.tscn" id="3_e615s"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://scenes/photo_camera.tscn" id="3_qq3wa"]
+[ext_resource type="Texture2D" uid="uid://d0jlvsms8gdux" path="res://icon.svg" id="6_avk3u"]
 
 [sub_resource type="GDScript" id="GDScript_gm78l"]
 script/source = "extends CanvasLayer
@@ -13,33 +15,36 @@ script/source = "extends CanvasLayer
 func _input(event: InputEvent) -> void:
 	container.push_input(event)
 
-func _unhandled_input(event: InputEvent) -> void:
-	container.push_unhandled_input(event)
+func _ready() -> void:
+	get_tree().paused = true
+	Globals.ui_mode = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _start():
+	var tween = get_tree().create_tween()
+	Globals.ui_mode = false
+	$StartMenu/StartButton.visible = false
+	await tween.tween_property($StartMenu, \"modulate\", Color.TRANSPARENT, .25)
+	get_tree().paused = false
+	tween.tween_property($WorldTexture, \"modulate\", Color.WHITE, .5)
 "
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sscjo"]
-viewport_path = NodePath("CanvasLayer/WorldContainer")
+viewport_path = NodePath("WorldContainer")
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" groups=["camera_hidden"]]
 script = SubResource("GDScript_gm78l")
 
-[node name="WorldContainer" type="SubViewport" parent="CanvasLayer"]
+[node name="WorldContainer" type="SubViewport" parent="."]
 own_world_3d = true
 handle_input_locally = false
 size = Vector2i(800, 450)
 render_target_update_mode = 4
 
-[node name="Game" parent="CanvasLayer/WorldContainer" instance=ExtResource("1_l5tyx")]
+[node name="Game" parent="WorldContainer" instance=ExtResource("1_l5tyx")]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="WorldTexture" type="TextureRect" parent="." groups=["world_texture"]]
+modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -54,17 +59,87 @@ size_flags_vertical = 4
 texture = SubResource("ViewportTexture_sscjo")
 expand_mode = 3
 
-[node name="CameraDebug" parent="CanvasLayer/TextureRect" instance=ExtResource("2_78wtc")]
+[node name="CameraDebug" parent="WorldTexture" instance=ExtResource("2_78wtc")]
 custom_minimum_size = Vector2(96, 72)
 layout_mode = 1
 offset_right = 48.0
 scale = Vector2(0.75, 0.75)
 
-[node name="Hands" parent="CanvasLayer" node_paths=PackedStringArray("viewport_texture") instance=ExtResource("3_e615s")]
+[node name="PromptPanel" parent="." instance=ExtResource("3_dhvti")]
+visible = true
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -14.0
+offset_top = 17.0
+offset_right = 15.0
+offset_bottom = 40.0
+grow_vertical = 1
+size_flags_horizontal = 4
+
+[node name="Hands" parent="." node_paths=PackedStringArray("viewport_texture") instance=ExtResource("3_e615s")]
 position = Vector2(240, 270)
 viewport_texture = NodePath("../WorldContainer")
 
-[node name="PhotoCamera" parent="CanvasLayer" node_paths=PackedStringArray("viewport") instance=ExtResource("3_qq3wa")]
+[node name="PhotoCamera" parent="." node_paths=PackedStringArray("viewport") instance=ExtResource("3_qq3wa")]
 viewport = NodePath("../WorldContainer")
 
-[connection signal="photo_taken" from="CanvasLayer/PhotoCamera" to="CanvasLayer/TextureRect/CameraDebug" method="_on_photo_camera_photo_taken"]
+[node name="StartMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_avk3u")
+
+[node name="Label" type="Label" parent="StartMenu/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -24.5
+offset_right = 46.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Placeholder
+Logo"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -47.0
+offset_right = 24.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+
+[connection signal="photo_taken" from="PhotoCamera" to="WorldTexture/CameraDebug" method="_on_photo_camera_photo_taken"]
+[connection signal="pressed" from="StartMenu/StartButton" to="." method="_start"]

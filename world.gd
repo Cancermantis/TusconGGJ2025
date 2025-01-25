@@ -6,7 +6,7 @@ func _ready() -> void:
 
 func _input(event):
 	# Capture also on click because web.
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed && !Globals.ui_mode:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(_delta: float) -> void:

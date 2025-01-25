@@ -10,11 +10,15 @@ signal photo_taken(photo : ImageTexture, subject_data)
 @export var photo_data: Dictionary
 var subjects: Array[PhotoSubject]
 
+func _ready() -> void:
+	Globals.photo_camera = self
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("tool_use"):
 		match Globals.tool:
 			Globals.Tool.CAMERA:
 				take_photo()
+				get_viewport().set_input_as_handled()
 
 func take_photo():
 	if(Globals.player == null):
