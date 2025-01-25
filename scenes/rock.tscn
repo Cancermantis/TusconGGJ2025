@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkf50w38u0rcf"]
+
+[ext_resource type="Script" path="res://scripts/plant.gd" id="1_konh3"]
+[ext_resource type="Texture2D" uid="uid://c85743l1dfhw1" path="res://assets/rock1.webp" id="2_lw468"]
+[ext_resource type="Texture2D" uid="uid://d4yecss1lqkg" path="res://assets/rock2.webp" id="3_s857g"]
+[ext_resource type="Texture2D" uid="uid://b7n8fdafdkw5k" path="res://assets/rock3.webp" id="4_8wi1t"]
+[ext_resource type="Texture2D" uid="uid://86bu8jbobrq2" path="res://assets/rock4.webp" id="5_321q5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lw468")
+}],
+"loop": true,
+"name": &"rock1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s857g")
+}],
+"loop": true,
+"name": &"rock2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8wi1t")
+}],
+"loop": true,
+"name": &"rock3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_321q5")
+}],
+"loop": true,
+"name": &"rock4",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0o4fp"]
+radius = 0.3
+
+[node name="Rock" type="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.96, 0)
+script = ExtResource("1_konh3")
+option = "rock1"
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_01m5m")
+animation = &"rock4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.233384, 0)
+shape = SubResource("SphereShape3D_0o4fp")
