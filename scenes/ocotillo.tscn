@@ -1,41 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://brl6igoivl4hp"]
+[gd_scene load_steps=5 format=3 uid="uid://cwo6cnt5gdl26"]
 
-[ext_resource type="Script" path="res://scripts/plant.gd" id="1_tv0er"]
-[ext_resource type="Texture2D" uid="uid://wuttlp1pt6kt" path="res://assets/saguaro1.webp" id="2_1ueu0"]
-[ext_resource type="Texture2D" uid="uid://dvaomb2y3bjef" path="res://assets/saguaro2.webp" id="3_vb3k7"]
+[ext_resource type="Script" path="res://scripts/plant.gd" id="1_4b7ek"]
+[ext_resource type="Texture2D" uid="uid://7qlydbb4rnku" path="res://assets/ocotillo.webp" id="2_h34gw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1ueu0")
+"texture": ExtResource("2_h34gw")
 }],
 "loop": true,
-"name": &"saguaro1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_vb3k7")
-}],
-"loop": true,
-"name": &"saguaro2",
+"name": &"ocotillo1",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_imgjy"]
-radius = 0.1
+radius = 0.2
 height = 1.0
 
 [node name="SaguaroSmall" type="StaticBody3D"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.4, 0)
-script = ExtResource("1_tv0er")
+script = ExtResource("1_4b7ek")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_01m5m")
-animation = &"saguaro1"
+animation = &"ocotillo1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00102243, 0)

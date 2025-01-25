@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cug5a8meaokn6"]
+
+[ext_resource type="Script" path="res://scripts/plant.gd" id="1_h8k2g"]
+[ext_resource type="Texture2D" uid="uid://cffd3kjfumng7" path="res://assets/poppy.webp" id="2_0yio0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0yio0")
+}],
+"loop": true,
+"name": &"poppy1",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0o4fp"]
+radius = 0.3
+
+[node name="Poppy" type="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.96, 0)
+script = ExtResource("1_h8k2g")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_01m5m")
+animation = &"poppy1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0506139, 0)
+shape = SubResource("SphereShape3D_0o4fp")

@@ -45,15 +45,14 @@ animations = [{
 radius = 0.3
 
 [node name="Rock" type="StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.96, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.775005, 0)
 script = ExtResource("1_konh3")
-option = "rock1"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_01m5m")
-animation = &"rock4"
+animation = &"rock1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.233384, 0)

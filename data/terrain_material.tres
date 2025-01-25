@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c7sypjkhfoie6"]
+
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="1_ke3hx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_osi2n"]
+fractal_octaves = 3
+fractal_weighted_strength = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ml1w"]
+seamless = true
+seamless_blend_skirt = 0.2
+as_normal_map = true
+bump_strength = 4.5
+normalize = false
+noise = SubResource("FastNoiseLite_osi2n")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ke3hx")
+shader_parameter/color = Color(1, 0.662745, 0.364706, 1)
+shader_parameter/normal = SubResource("NoiseTexture2D_8ml1w")

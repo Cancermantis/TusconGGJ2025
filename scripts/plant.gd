@@ -1,7 +1,5 @@
-@tool
 extends StaticBody3D
 
-@export var option: String = ""
 @onready var audio_cooldown_min_max: Array[float] = [4,12]
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
 var loop_timer
@@ -9,12 +7,12 @@ const ENV_PLANT_RUSTLE = preload("res://assets/audio/audioresources/Env_Plant_Ru
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if option != "":
-		sprite.animation = option
-		loop_timer = Timer.new()
-		add_child(loop_timer)
-		loop_timer.one_shot = true
-		loop_audio()
+	var options := sprite.sprite_frames.get_animation_names()
+	sprite.animation = options[Globals.rng.randi() % options.size()]
+	loop_timer = Timer.new()
+	add_child(loop_timer)
+	loop_timer.one_shot = true
+	loop_audio()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
