@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cggluns1b1g25"]
+[gd_scene load_steps=8 format=3 uid="uid://cggluns1b1g25"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_1mfl6"]
 [ext_resource type="Texture2D" uid="uid://b0kegg5v7k6pn" path="res://assets/saguaro3.webp" id="3_jiqnh"]
 [ext_resource type="Texture2D" uid="uid://dc6d3c52062y5" path="res://assets/saguaro4.webp" id="4_m4m0q"]
+[ext_resource type="Texture2D" uid="uid://osa1vaanxmj3" path="res://assets/saguaro_dead.webp" id="5_5gb8u"]
 [ext_resource type="Texture2D" uid="uid://dt7rwhiv4tcbn" path="res://assets/saguaro5.webp" id="5_oki0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
@@ -30,6 +31,14 @@ animations = [{
 "loop": true,
 "name": &"saguaro5",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5gb8u")
+}],
+"loop": true,
+"name": &"saguaro_dead",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_imgjy"]
@@ -45,7 +54,7 @@ option = "saguaro4"
 billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_01m5m")
-animation = &"saguaro3"
+animation = &"saguaro4"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.216, 0)
