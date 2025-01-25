@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=9 format=3 uid="uid://dg0wi1ha3ln1o"]
+
+[ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="1_0hfks"]
+[ext_resource type="AudioStream" uid="uid://b4550ly22e2dq" path="res://assets/audio/Obj_Camera_Move_01.wav" id="1_ttvf3"]
+[ext_resource type="AudioStream" uid="uid://234b7nxcgt0u" path="res://assets/audio/Obj_Camera_Move_02.wav" id="2_t32wl"]
+[ext_resource type="AudioStream" uid="uid://bb3vv43fa1u02" path="res://assets/audio/Obj_Camera_Move_03.wav" id="3_a4l8o"]
+[ext_resource type="AudioStream" uid="uid://beds48orfnron" path="res://assets/audio/Obj_Camera_Move_04.wav" id="4_wmu2v"]
+[ext_resource type="AudioStream" uid="uid://dsnvubk3oucc6" path="res://assets/audio/Obj_Camera_Move_05.wav" id="5_a6byy"]
+[ext_resource type="AudioStream" uid="uid://cjumsj0lthvji" path="res://assets/audio/Obj_Camera_Move_06.wav" id="6_8iopi"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2qynn"]
+streams_count = 6
+stream_0/stream = ExtResource("1_ttvf3")
+stream_1/stream = ExtResource("2_t32wl")
+stream_2/stream = ExtResource("3_a4l8o")
+stream_3/stream = ExtResource("4_wmu2v")
+stream_4/stream = ExtResource("5_a6byy")
+stream_5/stream = ExtResource("6_8iopi")
+
+[resource]
+script = ExtResource("1_0hfks")
+Sound = SubResource("AudioStreamRandomizer_2qynn")
+VoiceLimit = 2
+AudioBus = "Hero"
+Attenuation = 1
+MaxDistance = 0.0
+PlaybackPitch = 1.0
+MaxPolyphony = 2.0
