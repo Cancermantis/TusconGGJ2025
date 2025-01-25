@@ -2,6 +2,8 @@ extends Node
 
 var bubble_size := 99
 var player: Player
+var rng := RandomNumberGenerator.new()
+var seed := 1337
 var tool := Tool.NONE
 
 enum Tool {
@@ -11,7 +13,7 @@ enum Tool {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Globals.rng.seed = seed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
