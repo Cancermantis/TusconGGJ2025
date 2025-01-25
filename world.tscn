@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=25 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://scenes/player.tscn" id="1_ik0qd"]
@@ -10,6 +10,9 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
 [ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://scenes/coyote.tscn" id="6_iq0qv"]
 [ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://scenes/roadrunner.tscn" id="7_85icd"]
+[ext_resource type="PackedScene" uid="uid://cb4i5j1fq75ek" path="res://assets/setpieces/bubbles_fx.tscn" id="8_uaarj"]
+[ext_resource type="PackedScene" uid="uid://cqo2i0wf2cif1" path="res://assets/setpieces/dome.tscn" id="9_stswf"]
+[ext_resource type="PackedScene" uid="uid://ciesp75prk3ng" path="res://assets/setpieces/landing_pad.tscn" id="10_8vo4k"]
 [ext_resource type="PackedScene" uid="uid://d4g1eelu1nh5i" path="res://scenes/pear.tscn" id="11_1jq7s"]
 [ext_resource type="PackedScene" uid="uid://cggluns1b1g25" path="res://scenes/saguaro.tscn" id="11_sona3"]
 [ext_resource type="PackedScene" uid="uid://brl6igoivl4hp" path="res://scenes/saguaro_small.tscn" id="12_aekhh"]
@@ -47,7 +50,7 @@ shader_parameter/normal = SubResource("NoiseTexture2D_8ml1w")
 script = ExtResource("1_xyhbd")
 
 [node name="Player" parent="." instance=ExtResource("1_ik0qd")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 0)
+transform = Transform3D(0.580731, 0, 0.814095, 0, 1, 0, -0.814095, 0, 0.580731, 74.0556, 16.0493, 42.4321)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.926016, 0.377485, 0, -0.377485, 0.926016, 0, 0, 0)
@@ -68,6 +71,12 @@ material_override = SubResource("ShaderMaterial_s3pcf")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="StaticBody3D/CollisionShape3D/Terrain/world/geometry_0" index="0"]
 occluder = ExtResource("6_5eijw")
+
+[node name="Bubbles" parent="StaticBody3D" instance=ExtResource("8_uaarj")]
+
+[node name="Dome" parent="StaticBody3D" instance=ExtResource("9_stswf")]
+
+[node name="LandingPad" parent="StaticBody3D" instance=ExtResource("10_8vo4k")]
 
 [node name="Javelina" parent="." instance=ExtResource("5_1l5pd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5875, 2.63391, 39.4515)
@@ -579,3 +588,4 @@ transform = Transform3D(1.90278, 0, 0.615975, 0, 2, 0, -0.615975, 0, 1.90278, -3
 option = "rock3"
 
 [editable path="StaticBody3D/CollisionShape3D/Terrain"]
+[editable path="StaticBody3D/LandingPad"]

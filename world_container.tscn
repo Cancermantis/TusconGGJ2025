@@ -58,6 +58,7 @@ expand_mode = 3
 custom_minimum_size = Vector2(96, 72)
 layout_mode = 1
 offset_right = 48.0
+scale = Vector2(0.75, 0.75)
 
 [node name="Hands" parent="CanvasLayer" node_paths=PackedStringArray("viewport_texture") instance=ExtResource("3_e615s")]
 position = Vector2(240, 270)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqo2i0wf2cif1"]
+
+[ext_resource type="Shader" path="res://shaders/bubble_dome_interior.gdshader" id="1_6scjk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dbtty"]
+flip_faces = true
+radius = 50.2
+height = 100.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p8nu3"]
+render_priority = -1
+shader = ExtResource("1_6scjk")
+shader_parameter/bubble_color = Color(0, 0.483333, 1, 0.513726)
+shader_parameter/alpha_exponent = 2.0
+
+[node name="Dome" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_dbtty")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_p8nu3")

@@ -12,11 +12,15 @@ const JUMP_VELOCITY := 4.5
 var stealth: bool = false
 var sprinting: bool = false
 var current_max_speed = SPEED
+@export var input_disabled = true
 
 func _ready() -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
+	if(input_disabled):
+		return
+	
 	if(event.is_action_pressed("stealth") && !sprinting):
 		stealth = true
 		current_max_speed = SPEED_QUIET
@@ -35,9 +39,12 @@ func _process(delta: float) -> void:
 	rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
 	camera.rotate_x(-mouse_delta.y * mouse_sensitivity * delta)
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -80, 80)
-	position = Globals.keep_in_bubble(position)
+	if(!input_disabled):
+		position = Globals.keep_in_bubble(position)
 
 func _physics_process(delta: float) -> void:
+	if(input_disabled):
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
