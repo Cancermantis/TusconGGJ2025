@@ -1,14 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://cn1w3ba6h2fpi"]
+[gd_scene load_steps=22 format=3 uid="uid://cn1w3ba6h2fpi"]
 
 [ext_resource type="PackedScene" uid="uid://ca7nfd3vu6x5h" path="res://assets/terrain.glb" id="1_h6576"]
 [ext_resource type="PackedScene" uid="uid://dsa1t6as7p3s2" path="res://scenes/player.tscn" id="1_ik0qd"]
 [ext_resource type="Script" path="res://world.gd" id="1_xyhbd"]
-[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="2_m5cn3"]
 [ext_resource type="Material" uid="uid://b3y4aelmrpynk" path="res://shaders/sky.tres" id="3_lgo5p"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="4_bo63a"]
 [ext_resource type="PackedScene" uid="uid://cdsq00jes8t8f" path="res://scenes/javelina.tscn" id="5_1l5pd"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
 [ext_resource type="PackedScene" uid="uid://2yyw8fc3t7xm" path="res://scenes/coyote.tscn" id="6_iq0qv"]
+[ext_resource type="Material" uid="uid://c7sypjkhfoie6" path="res://data/terrain_material.tres" id="6_yj4rk"]
 [ext_resource type="PackedScene" uid="uid://7jnxln00tquv" path="res://scenes/roadrunner.tscn" id="7_85icd"]
 [ext_resource type="PackedScene" uid="uid://cb4i5j1fq75ek" path="res://assets/setpieces/bubbles_fx.tscn" id="8_uaarj"]
 [ext_resource type="PackedScene" uid="uid://cqo2i0wf2cif1" path="res://assets/setpieces/dome.tscn" id="9_stswf"]
@@ -27,24 +27,6 @@ background_mode = 2
 sky = SubResource("Sky_uol04")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hmwii"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_osi2n"]
-fractal_octaves = 3
-fractal_weighted_strength = 0.5
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ml1w"]
-seamless = true
-seamless_blend_skirt = 0.2
-as_normal_map = true
-bump_strength = 4.5
-normalize = false
-noise = SubResource("FastNoiseLite_osi2n")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3pcf"]
-render_priority = 0
-shader = ExtResource("2_m5cn3")
-shader_parameter/color = Color(1, 0.662745, 0.364706, 1)
-shader_parameter/normal = SubResource("NoiseTexture2D_8ml1w")
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_xyhbd")
@@ -67,7 +49,7 @@ shape = SubResource("ConcavePolygonShape3D_hmwii")
 [node name="Terrain" parent="StaticBody3D/CollisionShape3D" instance=ExtResource("1_h6576")]
 
 [node name="geometry_0" parent="StaticBody3D/CollisionShape3D/Terrain/world" index="0"]
-material_override = SubResource("ShaderMaterial_s3pcf")
+material_override = ExtResource("6_yj4rk")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="StaticBody3D/CollisionShape3D/Terrain/world/geometry_0" index="0"]
 occluder = ExtResource("6_5eijw")

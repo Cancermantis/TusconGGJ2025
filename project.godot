@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Tucson GGJ2025"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 photo_camera="Node group for quickly and easily finding the PhotoCamera node from any script in the scene"

@@ -43,22 +43,33 @@ def extract_region(path: str, lat: float, lon: float, size_meters: float) -> np.
 def main():
     lat, lon = 32.1283421, -110.6429937
     # Go past what we plan to use for easier clipping in Blender.
+    # # Portion of Rincon Valley.
     # region = extract_region(
     #     path="ignore/USGS_1M_12_x53y356_AZ_PimaCounty_2021_B21.tif",
     #     lat=32.1283421,
     #     lon=-110.6429937,
     #     size_meters=110,
     # )
-    # lat, lon = 32.21493, -111.00046
-    clip = dict(lat=32.21493, lon=-111.00046, size_meters=2600)
+    # scale = 1
+    # # Tumamoc & Sentinel Peak.
+    # clip = dict(lat=32.21493, lon=-111.00046, size_meters=2600)
+    # region1 = extract_region(
+    #     path="ignore/USGS_1M_12_x49y357_AZ_PimaCounty_2021_B21.tif", **clip
+    # )
+    # region2 = extract_region(
+    #     path="ignore/USGS_1M_12_x50y357_AZ_PimaCounty_2021_B21.tif", **clip
+    # )
+    # scale = 10
+    # Golden Gate Mountain.
+    clip = dict(lat=32.2083805, lon=-111.1094949, size_meters=1100)
     region1 = extract_region(
-        path="ignore/USGS_1M_12_x49y357_AZ_PimaCounty_2021_B21.tif", **clip
+        path="ignore/USGS_1M_12_x48y357_AZ_PimaCounty_2021_B21.tif", **clip
     )
     region2 = extract_region(
-        path="ignore/USGS_1M_12_x50y357_AZ_PimaCounty_2021_B21.tif", **clip
+        path="ignore/USGS_1M_12_x49y357_AZ_PimaCounty_2021_B21.tif", **clip
     )
-    scale = 10
-    region = np.hstack([region1, region2])[::scale, ::scale]
+    scale = 5
+    region = np.hstack([region1[:, :-10], region2[:, :]])[::scale, ::scale]
     # Save images.
     # options = dict(lossless=True)
     options = dict()
