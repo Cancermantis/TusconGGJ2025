@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://coatvqonrg2nn"]
+
+[ext_resource type="Script" path="res://scripts/UI/subject_icon.gd" id="1_36oxm"]
+[ext_resource type="Texture2D" uid="uid://d1u1sk0m7aqcq" path="res://assets/icon_javelina.webp" id="1_u402k"]
+
+[node name="SubjectIcon" type="PanelContainer"]
+custom_minimum_size = Vector2(32, 32)
+script = ExtResource("1_36oxm")
+
+[node name="IconTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_u402k")
+expand_mode = 1
