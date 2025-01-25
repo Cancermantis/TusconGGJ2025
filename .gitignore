@@ -17,3 +17,4 @@ mono_crash.*.json
 
 # Files that we purposely want to leave out
 ignore/
+.DS_Store
