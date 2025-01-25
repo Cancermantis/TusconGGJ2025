@@ -68,13 +68,13 @@ material_override = SubResource("ShaderMaterial_s3pcf")
 occluder = ExtResource("6_5eijw")
 
 [node name="Javelina" parent="." instance=ExtResource("5_1l5pd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01533, 2.96472, 27.2532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5875, 2.63391, 39.4515)
 
 [node name="Coyote" parent="." instance=ExtResource("6_iq0qv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29986, 2.75742, 24.9916)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77802, 13.3048, -29.4137)
 
 [node name="Roadrunner" parent="." instance=ExtResource("7_85icd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7222, 2.31951, 24.1964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6879, 2.31948, 24.1964)
 
 [node name="Plants" type="Node" parent="."]
 
@@ -181,6 +181,167 @@ option = "pear2"
 [node name="Pear30" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
 transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 24.5518, 2.82494, 15.52)
 
+[node name="Pear31" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.26001, 12.213, -17.8941)
+
+[node name="Pear32" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.91095, 12.2012, -18.1208)
+option = "pear2"
+
+[node name="Pear33" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.87767, 0, 0.688729, 0, 2, 0, -0.688729, 0, 1.87767, -12.356, 13.0323, -27.4652)
+
+[node name="Pear34" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.87767, 0, 0.688729, 0, 2, 0, -0.688729, 0, 1.87767, -12.1423, 13.0568, -26.8826)
+
+[node name="Pear35" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.87767, 0, 0.688729, 0, 2, 0, -0.688729, 0, 1.87767, -13.3005, 13.0629, -27.3603)
+option = "pear2"
+
+[node name="Pear36" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.53822, 0, -1.27823, 0, 2, 0, 1.27823, 0, -1.53822, -13.4561, 12.9902, -25.8041)
+
+[node name="Pear37" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.53822, 0, -1.27823, 0, 2, 0, 1.27823, 0, -1.53822, -13.8527, 13.0743, -26.2813)
+
+[node name="Pear38" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.53822, 0, -1.27823, 0, 2, 0, 1.27823, 0, -1.53822, -12.6014, 13.0132, -26.2194)
+option = "pear2"
+
+[node name="Pear39" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.87767, 0, 0.688729, 0, 2, 0, -0.688729, 0, 1.87767, -25.3969, 11.6449, -26.6629)
+
+[node name="Pear40" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.87767, 0, 0.688729, 0, 2, 0, -0.688729, 0, 1.87767, -22.2819, 12.0074, -27.1445)
+
+[node name="Pear41" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.87767, 0, 0.688729, 0, 2, 0, -0.688729, 0, 1.87767, -27.5059, 11.389, -25.9599)
+option = "pear2"
+
+[node name="Pear42" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.53822, 0, -1.27823, 0, 2, 0, 1.27823, 0, -1.53822, -29.8284, 10.7082, -24.7625)
+
+[node name="Pear43" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.53822, 0, -1.27823, 0, 2, 0, 1.27823, 0, -1.53822, -28.931, 10.9049, -24.7936)
+
+[node name="Pear44" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.53822, 0, -1.27823, 0, 2, 0, 1.27823, 0, -1.53822, -23.6417, 11.8691, -27.174)
+option = "pear2"
+
+[node name="Pear71" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.10492, 0, 1.66708, 0, 2, 0, -1.66708, 0, 1.10492, -33.0934, 8.15741, -11.779)
+
+[node name="Pear72" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.10492, 0, 1.66708, 0, 2, 0, -1.66708, 0, 1.10492, -31.4553, 8.71516, -12.9174)
+
+[node name="Pear73" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.62139, 0, 1.17093, 0, 2, 0, -1.17093, 0, 1.62139, -31.0812, 9.18606, -14.7998)
+option = "pear2"
+
+[node name="Pear74" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.13514, 0, -1.64665, 0, 2, 0, 1.64665, 0, -1.13514, -32.9932, 8.46931, -13.0188)
+
+[node name="Pear75" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.13514, 0, -1.64665, 0, 2, 0, 1.64665, 0, -1.13514, -32.1377, 8.86559, -13.2915)
+
+[node name="Pear76" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-0.482255, 0, -1.94099, 0, 2, 0, 1.94099, 0, -0.482255, -31.8052, 8.24184, -11.3617)
+option = "pear2"
+
+[node name="Pear45" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 5.24544, 11.7805, -13.8167)
+
+[node name="Pear46" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 4.32841, 11.9042, -15.7166)
+
+[node name="Pear47" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 6.61044, 11.0098, -10.2775)
+option = "pear2"
+
+[node name="Pear48" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 5.09943, 11.6644, -12.2936)
+
+[node name="Pear49" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 25.5408, 9.78417, -16.3356)
+
+[node name="Pear50" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 4.48306, 11.9776, -17.0417)
+option = "pear2"
+
+[node name="Pear51" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 9.67865, 10.7812, -10.6799)
+
+[node name="Pear52" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 8.03449, 10.3628, -8.93849)
+
+[node name="Pear53" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 25.881, 9.67742, -14.9481)
+option = "pear2"
+
+[node name="Pear54" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 27.9329, 10.4045, -18.864)
+
+[node name="Pear55" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 26.7149, 10.1677, -18.1899)
+
+[node name="Pear56" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 9.51176, 10.5466, -9.83408)
+option = "pear2"
+
+[node name="Pear61" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.17935, 0, 1.61528, 0, 2, 0, -1.61528, 0, 1.17935, -8.09155, 13.8182, -41.0197)
+option = "purple1"
+
+[node name="Pear62" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(1.17935, 0, 1.61528, 0, 2, 0, -1.61528, 0, 1.17935, -7.89079, 13.9952, -42.6822)
+option = "purple1"
+
+[node name="Pear63" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.266169, 0, -1.98221, 0, 2, 0, 1.98221, 0, 0.266169, -1.85869, 14.0412, -42.6418)
+option = "purple1"
+
+[node name="Pear64" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.266169, 0, -1.98221, 0, 2, 0, 1.98221, 0, 0.266169, -3.93387, 14.034, -43.0214)
+option = "purple1"
+
+[node name="Pear65" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.266169, 0, -1.98221, 0, 2, 0, 1.98221, 0, 0.266169, 1.80462, 14.0376, -41.6572)
+option = "purple1"
+
+[node name="Pear66" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-0.915158, 0, 1.77834, 0, 2, 0, -1.77834, 0, -0.915158, -0.714671, 13.9818, -41.6257)
+option = "purple1"
+
+[node name="Pear67" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-0.915158, 0, 1.77834, 0, 2, 0, -1.77834, 0, -0.915158, -4.91289, 14.1833, -45.033)
+option = "purple1"
+
+[node name="Pear68" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.266169, 0, -1.98221, 0, 2, 0, 1.98221, 0, 0.266169, 3.28887, 14.1398, -44.3725)
+option = "purple1"
+
+[node name="Pear69" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.266169, 0, -1.98221, 0, 2, 0, 1.98221, 0, 0.266169, 3.72578, 14.0695, -42.0177)
+option = "purple1"
+
+[node name="Pear70" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-0.915158, 0, 1.77834, 0, 2, 0, -1.77834, 0, -0.915158, 3.87358, 14.1283, -43.7389)
+option = "purple1"
+
+[node name="Pear57" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 25.8426, 10.2174, -20.9764)
+
+[node name="Pear58" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(-1.44396, 0, -1.38383, 0, 2, 0, 1.38383, 0, -1.44396, 27.1016, 10.414, -21.2063)
+option = "pear2"
+
+[node name="Pear59" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 26.4013, 11.1456, -22.6606)
+option = "pear2"
+
+[node name="Pear60" parent="Plants/Pear" instance=ExtResource("11_1jq7s")]
+transform = Transform3D(0.89661, 0, 1.78776, 0, 2, 0, -1.78776, 0, 0.89661, 13.1206, 11.7048, -30.2585)
+
 [node name="Saguaro" type="Node3D" parent="Plants"]
 
 [node name="Saguaro1" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
@@ -195,7 +356,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -11.7979, 8.15091, 38.3421)
 option = "saguaro3"
 
 [node name="Saguaro4" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 11.568, 8.57852, 44.0234)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 11.568, 8.6763, 44.0234)
 
 [node name="Saguaro5" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -27.2874, 7.77418, 37.7833)
@@ -216,7 +377,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -28.0087, 15.519, -36.0012)
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.18134, 9.60086, 43.2671)
 
 [node name="Saguaro10" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.99367, 8.49164, 41.3876)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.99367, 8.53046, 41.3876)
 option = "saguaro5"
 
 [node name="Saguaro11" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
@@ -225,10 +386,6 @@ option = "saguaro5"
 
 [node name="Saguaro12" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
 transform = Transform3D(-1.9677, 0, 4.59654, 0, 5, 0, -4.59654, 0, -1.9677, -9.12889, 17.0534, -28.4354)
-option = "saguaro3"
-
-[node name="Saguaro18" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
-transform = Transform3D(-1.9677, 0, 4.59654, 0, 5, 0, -4.59654, 0, -1.9677, 26.761, 16.792, -35.9197)
 option = "saguaro3"
 
 [node name="Saguaro13" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
@@ -248,6 +405,18 @@ transform = Transform3D(-1.9677, 0, 4.59654, 0, 5, 0, -4.59654, 0, -1.9677, 43.7
 [node name="Saguaro17" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
 transform = Transform3D(-1.9677, 0, 4.59654, 0, 5, 0, -4.59654, 0, -1.9677, 33.4221, 15.4749, -23.2946)
 option = "saguaro5"
+
+[node name="Saguaro18" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
+transform = Transform3D(-1.9677, 0, 4.59654, 0, 5, 0, -4.59654, 0, -1.9677, 26.761, 16.792, -35.9197)
+option = "saguaro3"
+
+[node name="Saguaro19" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9.39732, 5.78443, 39.6447)
+option = "saguaro_dead"
+
+[node name="Saguaro20" parent="Plants/Saguaro" instance=ExtResource("11_sona3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.87071, 13.6097, -14.2695)
+option = "saguaro_dead"
 
 [node name="SaguaroSmall" type="Node3D" parent="Plants"]
 

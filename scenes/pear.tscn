@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4g1eelu1nh5i"]
+[gd_scene load_steps=8 format=3 uid="uid://d4g1eelu1nh5i"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_bfq8w"]
 [ext_resource type="Texture2D" uid="uid://cgwtbequkuc12" path="res://assets/pear1.webp" id="2_jer2j"]
 [ext_resource type="Texture2D" uid="uid://b60muw2v27c28" path="res://assets/pear2.webp" id="3_h2ycp"]
+[ext_resource type="Texture2D" uid="uid://cemprmopoehje" path="res://assets/pear_purple.webp" id="4_pj0pf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvgk3"]
+atlas = ExtResource("4_pj0pf")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
 animations = [{
@@ -21,6 +26,14 @@ animations = [{
 "loop": true,
 "name": &"pear2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvgk3")
+}],
+"loop": true,
+"name": &"purple1",
+"speed": 5.0
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0o4fp"]
@@ -35,7 +48,7 @@ option = "pear1"
 billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_01m5m")
-animation = &"pear2"
+animation = &"pear1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0506139, 0)
