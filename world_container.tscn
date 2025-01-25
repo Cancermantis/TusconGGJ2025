@@ -34,7 +34,7 @@ script = SubResource("GDScript_gm78l")
 [node name="WorldContainer" type="SubViewport" parent="CanvasLayer"]
 own_world_3d = true
 handle_input_locally = false
-size = Vector2i(480, 360)
+size = Vector2i(800, 450)
 render_target_update_mode = 4
 
 [node name="Game" parent="CanvasLayer/WorldContainer" instance=ExtResource("1_l5tyx")]

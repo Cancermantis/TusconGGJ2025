@@ -95,7 +95,7 @@ visible = false
 [node name="CameraDisplay" type="Sprite2D" parent="Control"]
 visible = false
 position = Vector2(-12, -47)
-scale = Vector2(0.11, 0.11)
+scale = Vector2(0.06, 0.06)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Control"]
 texture_filter = 2
