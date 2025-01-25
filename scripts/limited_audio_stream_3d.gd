@@ -1,6 +1,6 @@
 @tool
-extends AudioStreamPlayer
-class_name LimitedAudioStreamPlayer
+extends AudioStreamPlayer3D
+class_name LimitedAudioStreamPlayer3D
 
 @export var limited_sound: Sound_Limited:
 	get:
@@ -10,11 +10,15 @@ class_name LimitedAudioStreamPlayer
 			return
 		limited_sound = value
 		stream = limited_sound.Sound
-		max_polyphony = limited_sound.VoiceLimit
+		max_polyphony =  limited_sound.VoiceLimit
 		bus = limited_sound.AudioBus
+		attenuation_model = limited_sound.Attenuation
+		max_distance = limited_sound.MaxDistance
 		pitch_scale = limited_sound.PlaybackPitch
+
+
 func limited_play():
-	AudioManager.request_play(self)
+	AudioManager.request_play3D(self)
 
 func _exit_tree():
 	finished.emit()

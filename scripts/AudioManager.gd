@@ -17,19 +17,19 @@ func request_play(player: LimitedAudioStreamPlayer):
 	player.play()
 	
 	player.finished.connect(_sound_finished.bind(player.limited_sound))
-#
-#func request_play2D(player: LimitedAudioStreamPlayer2D):
-	#if(sounds_playing.has(player.limited_sound)):
-		#if(sounds_playing[player.limited_sound] >= player.limited_sound.VoiceLimit):
-			#return false
-		#else:
-			#sounds_playing[player.limited_sound] += 1
-	#else:
-		#sounds_playing[player.limited_sound] = 1
-	#
-	#player.playing = true
-	#player.finished.connect(_sound_finished.bind(player.limited_sound), CONNECT_ONE_SHOT)
-	#return true
+
+func request_play3D(player: LimitedAudioStreamPlayer3D):
+	if(sounds_playing.has(player.limited_sound)):
+		if(sounds_playing[player.limited_sound] >= player.limited_sound.VoiceLimit):
+			return false
+		else:
+			sounds_playing[player.limited_sound] += 1
+	else:
+		sounds_playing[player.limited_sound] = 1
+	
+	player.playing = true
+	player.finished.connect(_sound_finished.bind(player.limited_sound), CONNECT_ONE_SHOT)
+	return true
 
 func _sound_finished(sound: Sound_Limited):
 	if(!sounds_playing.has(sound)):
@@ -39,13 +39,13 @@ func _sound_finished(sound: Sound_Limited):
 	if(sounds_playing[sound] == 0):
 		sounds_playing.erase(sound)
 
-#func _play_sound_at_location(sound: SoundLimited, position: Vector2):
-	#if(sound == null):
-		#return
-	#var player = LimitedAudioStreamPlayer2D.new()
-	#player.global_position = position
-	#player.limited_sound = sound
-	#if(!request_play2D(player)):
-		#player.queue_free()
-	#else:
-		#player.finished.connect(player.queue_free)
+func _play_sound_at_location(sound: Sound_Limited, position: Vector2):
+	if(sound == null):
+		return
+	var player = LimitedAudioStreamPlayer3D.new()
+	player.global_position = position
+	player.limited_sound = sound
+	if(!request_play3D(player)):
+		player.queue_free()
+	else:
+		player.finished.connect(player.queue_free)
