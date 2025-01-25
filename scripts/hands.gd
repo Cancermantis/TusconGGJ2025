@@ -43,3 +43,11 @@ func _input(event: InputEvent) -> void:
 				await sprite.animation_finished
 				Globals.tool = Globals.Tool.CAMERA
 				camera_display.visible = true
+
+func play_hit_sound():
+	audio_player.limited_sound = OBJ_CAMERA_HIT
+	audio_player.play()
+	
+func play_miss_sound():
+	audio_player.limited_sound = OBJ_CAMERA_MISS
+	audio_player.play()

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfm6uk35e3ahl"]
+
+[ext_resource type="Script" path="res://scripts/environment_audio.gd" id="1_oi7wl"]
+[ext_resource type="AudioStream" uid="uid://oibu1ufv88mv" path="res://assets/audio/Env_DesertWind.ogg" id="2_o70i7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e6wjk"]
+radius = 50.0
+
+[node name="EnvironmentAudio" type="Area3D"]
+monitorable = false
+reverb_bus_enabled = true
+reverb_bus_name = &"Reverb"
+reverb_bus_amount = 0.5
+script = ExtResource("1_oi7wl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_e6wjk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o70i7")
+bus = &"Environment"
+parameters/looping = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -6,12 +6,16 @@ class_name PhotoCamera
 @export var viewport: SubViewport
 
 signal photo_taken(photo : ImageTexture, subject_data)
+signal CameraHit
+signal CameraMiss
+
 
 @export var photo_data: Dictionary
 var subjects: Array[PhotoSubject]
 
 func _ready() -> void:
 	Globals.photo_camera = self
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("tool_use"):
@@ -40,7 +44,10 @@ func take_photo():
 		if(subject.subject_data.cull_distance < distance):
 			continue
 		subject_data.append(subject.subject_data)
-	
+	if subject_data.size() < 2:
+		CameraHit.emit()
+	else:
+		CameraMiss.emit()
 	# store photo subject information along with the photo itself
 	photo_data.get_or_add(texture, subject_data)
 	photo_taken.emit(texture, subject_data)
