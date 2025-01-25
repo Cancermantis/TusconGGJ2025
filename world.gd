@@ -16,14 +16,20 @@ func _process(_delta: float) -> void:
 func spawn_plants():
 	var space_state := get_world_3d().direct_space_state
 	var cholla := preload("res://scenes/cholla.tscn")
+	var ocotillo := preload("res://scenes/ocotillo.tscn")
 	var pear := preload("res://scenes/pear.tscn")
+	var poppy := preload("res://scenes/poppy.tscn")
 	var rock := preload("res://scenes/rock.tscn")
 	var saguaro := preload("res://scenes/saguaro.tscn")
 	var saguaro_dead := preload("res://scenes/saguaro_dead.tscn")
-	for i in range(300):
+	for i in range(200):
 		spawn_plant(cholla)
-	for i in range(500):
+	for i in range(100):
+		spawn_plant(ocotillo)
+	for i in range(300):
 		spawn_plant(pear)
+	for i in range(100):
+		spawn_plant(poppy)
 	for i in range(50):
 		spawn_plant(rock)
 	for i in range(100):
