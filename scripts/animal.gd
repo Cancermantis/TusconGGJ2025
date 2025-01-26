@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var flee_distance: float = 20.0
 @export var move_speed = 8.0
+@export var debug_angle = false
 
 var change_delay: float
 var heading: Vector2
@@ -50,8 +51,20 @@ func update_facing() -> void:
 	var player_to_self := Vector2(player_to_self_3d.x, player_to_self_3d.z)
 	var angle = heading.angle_to(player_to_self)
 	
-	if(state != flee):
+	var abs_angle = rad_to_deg(abs(angle))
+	if(abs_angle > 135):
+		if(sprite.sprite_frames.has_animation("run_away") && sprite.animation != "run_away"):
+			sprite.play("run_away")
+	elif(abs_angle > 45):
+		if(sprite.sprite_frames.has_animation("default") && sprite.animation != "default"):
+			sprite.play("default")
 		sprite.flip_h = angle < 0
+	else:
+		if(sprite.sprite_frames.has_animation("forward") && sprite.animation != "forward"):
+			sprite.play("forward")
+	
+	#if(state != flee):
+	#	sprite.flip_h = angle < 0
 
 func flee(delta: float) -> void:
 	var distance = Globals.player.global_position.distance_to(self.global_position)
