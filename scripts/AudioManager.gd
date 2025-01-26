@@ -24,16 +24,20 @@ func request_play(player: LimitedAudioStreamPlayer):
 func request_play3D(player: LimitedAudioStreamPlayer3D):
 	if inside_dome == false:
 		return
+		
+	var connected = false
 	if(sounds_playing.has(player.limited_sound)):
 		if(sounds_playing[player.limited_sound] >= player.limited_sound.VoiceLimit):
 			return false
 		else:
 			sounds_playing[player.limited_sound] += 1
+			connected = true
 	else:
 		sounds_playing[player.limited_sound] = 1
 	
 	player.playing = true
-	player.finished.connect(_sound_finished.bind(player.limited_sound), CONNECT_ONE_SHOT)
+	if(!connected):
+		player.finished.connect(_sound_finished.bind(player.limited_sound), CONNECT_ONE_SHOT)
 	return true
 
 func _sound_finished(sound: Sound_Limited):

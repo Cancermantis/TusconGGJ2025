@@ -1,43 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwvtgy22th56p"]
+[gd_scene load_steps=10 format=3 uid="uid://bwvtgy22th56p"]
 
+[ext_resource type="Script" path="res://scripts/world_container.tres.gd" id="1_bj3y1"]
 [ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
 [ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="2_78wtc"]
 [ext_resource type="PackedScene" uid="uid://buaglns5jw28d" path="res://scenes/UI/prompt_panel.tscn" id="3_dhvti"]
 [ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://scenes/hands.tscn" id="3_e615s"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://scenes/photo_camera.tscn" id="3_qq3wa"]
-[ext_resource type="Texture2D" uid="uid://d0jlvsms8gdux" path="res://icon.svg" id="6_avk3u"]
-[ext_resource type="PackedScene" uid="uid://bvaaljidsnlbo" path="res://scenes/pulse.tscn" id="7_2sh3b"]
+[ext_resource type="PackedScene" path="res://scenes/pulse.tscn" id="7_2sh3b"]
 [ext_resource type="PackedScene" uid="uid://bdr6kgksd2ajn" path="res://scenes/UI/tutorial_widget.tscn" id="7_i6w24"]
-
-[sub_resource type="GDScript" id="GDScript_gm78l"]
-script/source = "extends CanvasLayer
-
-@onready var container: SubViewport = $WorldContainer
-
-func _input(event: InputEvent) -> void:
-	container.push_input(event)
-
-func _ready() -> void:
-	get_tree().paused = true
-	Globals.ui_mode = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func _start():
-	var tween = get_tree().create_tween()
-	Globals.ui_mode = false
-	$StartMenu/StartButton.visible = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	await tween.tween_property($StartMenu, \"modulate\", Color.TRANSPARENT, .25)
-	get_tree().paused = false
-	tween.tween_property($WorldTexture, \"modulate\", Color.WHITE, .5)
-"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sscjo"]
 viewport_path = NodePath("WorldContainer")
 
 [node name="UI" type="CanvasLayer" groups=["camera_hidden"]]
 process_mode = 3
-script = SubResource("GDScript_gm78l")
+script = ExtResource("1_bj3y1")
 
 [node name="WorldContainer" type="SubViewport" parent="."]
 process_mode = 1
@@ -99,37 +76,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="StartMenu"]
+[node name="Label" type="Label" parent="StartMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_avk3u")
-
-[node name="Label" type="Label" parent="StartMenu/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -24.5
-offset_right = 46.0
-offset_bottom = 24.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 79.0
+grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Placeholder
-Logo"
+theme_override_font_sizes/font_size = 32
+text = "Biosphere 3"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="StartMenu"]

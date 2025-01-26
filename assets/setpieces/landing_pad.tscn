@@ -1,24 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://ciesp75prk3ng"]
 
 [ext_resource type="Animation" uid="uid://bncxvuxk8xf2u" path="res://SceneAnimations/player_enter.res" id="1_77pmu"]
-[ext_resource type="PackedScene" path="res://scenes/launch_pad.tscn" id="2_7sh5t"]
+[ext_resource type="Script" path="res://scripts/landing_pad.gd" id="1_sjcsu"]
+[ext_resource type="PackedScene" uid="uid://caxbub7j8rstx" path="res://scenes/launch_pad.tscn" id="2_7sh5t"]
 [ext_resource type="PackedScene" uid="uid://bfhi4pkq77b3o" path="res://scenes/tutorial_initializer.tscn" id="3_8wmla"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_rp452"]
 top_radius = 2.0
 bottom_radius = 2.25
 height = 0.3
-
-[sub_resource type="GDScript" id="GDScript_3hb1w"]
-resource_name = "StartUpAnimation"
-script/source = "extends Node
-
-@onready var animation_player: AnimationPlayer = $StartupAnim
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	animation_player.play(\"player_enter\")
-"
 
 [sub_resource type="Animation" id="Animation_pn5we"]
 length = 0.001
@@ -32,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(74.0556, 16.0493, 42.4321)]
+"values": [Vector3(148.112, 32.098, 84.864)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,10 +47,10 @@ _data = {
 height = 0.3
 radius = 2.0
 
-[node name="LandingPad" type="MeshInstance3D"]
+[node name="LandingPad" type="MeshInstance3D" groups=["starting_anim"]]
 transform = Transform3D(0.580731, 0, 0.814095, 0, 1, 0, -0.814095, 0, 0.580731, 40.489, 1.22619, 18.4875)
 mesh = SubResource("CylinderMesh_rp452")
-script = SubResource("GDScript_3hb1w")
+script = ExtResource("1_sjcsu")
 
 [node name="StartupAnim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../../../Player")

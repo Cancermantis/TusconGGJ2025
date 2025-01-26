@@ -35,6 +35,8 @@ func _input(event: InputEvent) -> void:
 		current_max_speed = SPEED
 
 func _process(delta: float) -> void:
+	if(Globals.ui_mode):
+		return
 	var mouse_delta := Input.get_last_mouse_velocity()
 	rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
 	camera.rotate_x(-mouse_delta.y * mouse_sensitivity * delta)

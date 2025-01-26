@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="SubjectInfo" load_steps=2 format=3 uid="uid://gtfj774gedsk"]
+[gd_resource type="Resource" script_class="SubjectInfo" load_steps=3 format=3 uid="uid://c6vn3aytrjm6h"]
 
 [ext_resource type="Script" path="res://scripts/subject_info.gd" id="1_4xq44"]
+[ext_resource type="Texture2D" uid="uid://m3bms64t77sg" path="res://assets/icon_scorpion.webp" id="1_ohle7"]
 
 [resource]
 script = ExtResource("1_4xq44")
 name = "Scorpion"
 cull_distance = 3.0
 description = ""
+icon = ExtResource("1_ohle7")

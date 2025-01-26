@@ -6,11 +6,11 @@
 [ext_resource type="Material" uid="uid://b3y4aelmrpynk" path="res://shaders/sky.tres" id="3_lgo5p"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="4_bo63a"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
-[ext_resource type="Material" uid="uid://c7sypjkhfoie6" path="res://data/terrain_material.tres" id="6_yj4rk"]
+[ext_resource type="Material" uid="uid://clgl0q6fc8gmu" path="res://data/terrain_material.tres" id="6_yj4rk"]
 [ext_resource type="PackedScene" uid="uid://cb4i5j1fq75ek" path="res://assets/setpieces/bubbles_fx.tscn" id="8_uaarj"]
 [ext_resource type="PackedScene" uid="uid://cqo2i0wf2cif1" path="res://assets/setpieces/dome.tscn" id="9_stswf"]
 [ext_resource type="PackedScene" uid="uid://ciesp75prk3ng" path="res://assets/setpieces/landing_pad.tscn" id="10_8vo4k"]
-[ext_resource type="PackedScene" uid="uid://bfm6uk35e3ahl" path="res://assets/audio/audioresources/Environment_Audio.tscn" id="19_81lwx"]
+[ext_resource type="PackedScene" path="res://assets/audio/audioresources/Environment_Audio.tscn" id="19_81lwx"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
 sky_material = ExtResource("3_lgo5p")
@@ -25,7 +25,7 @@ sky = SubResource("Sky_uol04")
 script = ExtResource("1_xyhbd")
 
 [node name="Player" parent="." instance=ExtResource("1_ik0qd")]
-transform = Transform3D(0.580731, 0, 0.814095, 0, 1, 0, -0.814095, 0, 0.580731, 74.0556, 16.0493, 42.4321)
+transform = Transform3D(0.580731, 0, 0.814095, 0, 1, 0, -0.814095, 0, 0.580731, 148.112, 32.098, 84.864)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.926016, 0.377485, 0, -0.377485, 0.926016, 0, 0, 0)

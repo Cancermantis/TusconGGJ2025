@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="SubjectInfo" load_steps=2 format=3 uid="uid://cyrasese2ojun"]
+[gd_resource type="Resource" script_class="SubjectInfo" load_steps=3 format=3 uid="uid://cyrasese2ojun"]
 
 [ext_resource type="Script" path="res://scripts/subject_info.gd" id="1_aq2yi"]
+[ext_resource type="Texture2D" uid="uid://8y8rq3ep3gm8" path="res://assets/icon_coyote.webp" id="1_j1kmi"]
 
 [resource]
 script = ExtResource("1_aq2yi")
 name = "Coyote"
+cull_distance = 8.0
 description = ""
+icon = ExtResource("1_j1kmi")

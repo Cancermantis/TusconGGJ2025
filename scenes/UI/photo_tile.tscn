@@ -1,19 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsnhm4a0s1bgb"]
+[gd_scene load_steps=2 format=3 uid="uid://dsnhm4a0s1bgb"]
 
 [ext_resource type="Script" path="res://scripts/UI/photo_tile.gd" id="1_edq3q"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u74f7"]
-size = Vector2(9, 9)
 
 [node name="PhotoTile" type="TextureRect"]
 custom_minimum_size = Vector2(80, 45)
 expand_mode = 1
 script = ExtResource("1_edq3q")
 
-[node name="SaveButton?" type="Button" parent="."]
-visible = false
+[node name="SaveButton?" type="CheckBox" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-icon = SubResource("PlaceholderTexture2D_u74f7")
-flat = true
+offset_right = 24.0
+offset_bottom = 24.0
