@@ -20,6 +20,7 @@ script = ExtResource("1_cybop")
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MoveControls"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
