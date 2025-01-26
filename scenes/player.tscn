@@ -1,12 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsa1t6as7p3s2"]
+[gd_scene load_steps=14 format=3 uid="uid://dsa1t6as7p3s2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dpvpj"]
 [ext_resource type="PackedScene" uid="uid://c8af42myyhej5" path="res://scenes/sound_broadcaster.tscn" id="2_usvko"]
+[ext_resource type="AudioStream" uid="uid://bxrelhvxja0sh" path="res://assets/audio/DX_Bark_Hero_Pain_01.wav" id="3_bjg5e"]
+[ext_resource type="AudioStream" uid="uid://8k7lvkaeue7o" path="res://assets/audio/DX_Bark_Hero_Pain_02.wav" id="4_jwsgq"]
+[ext_resource type="AudioStream" uid="uid://cquv5b3biko0m" path="res://assets/audio/DX_Bark_Hero_Pain_03.wav" id="5_omllf"]
+[ext_resource type="AudioStream" uid="uid://fufypq4meul6" path="res://assets/audio/DX_Bark_Hero_Pain_04.wav" id="6_brp1x"]
+[ext_resource type="AudioStream" uid="uid://cq5egklfa34jc" path="res://assets/audio/DX_Bark_Hero_Pain_05.wav" id="7_y7pxr"]
+[ext_resource type="AudioStream" uid="uid://c3hof7cwj7tvw" path="res://assets/audio/DX_Bark_Hero_Pain_06.wav" id="8_6bf40"]
+[ext_resource type="Script" path="res://scripts/LimitedAudioStreamPlayer.gd" id="9_ycbhb"]
+[ext_resource type="Resource" uid="uid://b0knjbkijjvoq" path="res://assets/audio/audioresources/DX_Bark_Hero_Pain.tres" id="10_114v8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_we4my"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pteol"]
 radius = 10.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3vs8n"]
+streams_count = 6
+stream_0/stream = ExtResource("3_bjg5e")
+stream_1/stream = ExtResource("4_jwsgq")
+stream_2/stream = ExtResource("5_omllf")
+stream_3/stream = ExtResource("6_brp1x")
+stream_4/stream = ExtResource("7_y7pxr")
+stream_5/stream = ExtResource("8_6bf40")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_dpvpj")
@@ -19,3 +36,11 @@ shape = SubResource("CapsuleShape3D_we4my")
 
 [node name="SoundBroadcaster" parent="." instance=ExtResource("2_usvko")]
 area = SubResource("CylinderShape3D_pteol")
+
+[node name="LimitedAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3vs8n")
+volume_db = -3.958
+max_polyphony = 2
+bus = &"Hero"
+script = ExtResource("9_ycbhb")
+limited_sound = ExtResource("10_114v8")
