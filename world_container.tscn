@@ -26,7 +26,7 @@ func _start():
 	var tween = get_tree().create_tween()
 	Globals.ui_mode = false
 	$StartMenu/StartButton.visible = false
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	await tween.tween_property($StartMenu, \"modulate\", Color.TRANSPARENT, .25)
 	get_tree().paused = false
 	tween.tween_property($WorldTexture, \"modulate\", Color.WHITE, .5)
