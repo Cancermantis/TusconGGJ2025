@@ -46,17 +46,21 @@ func spawn_plants():
 	var coyote := preload("res://scenes/coyote.tscn")
 	var javelina := preload("res://scenes/javelina.tscn")
 	var roadrunner := preload("res://scenes/roadrunner.tscn")
-	for i in range(1):
-		spawn_plant(coyote)
-		spawn_plant(javelina)
-		spawn_plant(roadrunner)
+	var scorpion := preload("res://scenes/scorpion.tscn")
+	for i in range(2):
+		# Spawn above the ground to help prevent them getting stuck.
+		spawn_plant(coyote, 1)
+		spawn_plant(javelina, 1)
+		spawn_plant(roadrunner, 1)
+	for i in range(5):
+		spawn_plant(scorpion, 1)
 
 @onready var plants: Node3D = $Plants
 @onready var _space_state := get_world_3d().direct_space_state
 @onready var _limit := Globals.bubble_size
 @onready var _rng := Globals.rng
 
-func spawn_plant(scene: PackedScene):
+func spawn_plant(scene: PackedScene, above: float = 0):
 	var tries := 5
 	for i in range(tries):
 		var angle := _rng.randf() * 2 * PI
@@ -71,5 +75,6 @@ func spawn_plant(scene: PackedScene):
 			continue
 		var plant: Node3D = scene.instantiate()
 		plant.position += collision.get("position")
+		plant.position.y += above
 		plants.add_child(plant)
 		return collision.get("position")

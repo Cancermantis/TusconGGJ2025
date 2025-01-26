@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://b6xedr5o3wp27"]
+
+[ext_resource type="Script" path="res://scripts/animal.gd" id="1_vq88g"]
+[ext_resource type="Texture2D" uid="uid://gqdbim5387mw" path="res://assets/scorpion_side.webp" id="2_nvv4i"]
+[ext_resource type="Texture2D" uid="uid://b1lbum13gas50" path="res://assets/scorpion.webp" id="2_wr67c"]
+[ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_lm0sm"]
+[ext_resource type="Resource" uid="uid://gtfj774gedsk" path="res://data/scorpion.tres" id="4_srnqj"]
+[ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="5_b3em6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7mu6"]
+atlas = ExtResource("2_nvv4i")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsrdb"]
+atlas = ExtResource("2_nvv4i")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xyut"]
+atlas = ExtResource("2_nvv4i")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7wns"]
+atlas = ExtResource("2_nvv4i")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssq1o"]
+atlas = ExtResource("2_wr67c")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnu1f"]
+atlas = ExtResource("2_wr67c")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww5qj"]
+atlas = ExtResource("2_wr67c")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbmm4"]
+atlas = ExtResource("2_wr67c")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d13l7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7mu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsrdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xyut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7wns")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssq1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnu1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww5qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbmm4")
+}],
+"loop": true,
+"name": &"run_away",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3mf38"]
+custom_solver_bias = 1.0
+radius = 0.3
+
+[node name="Scorpion" type="CharacterBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_vq88g")
+flee_distance = 3.0
+move_speed = 0.5
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_d13l7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.110234, 0, 0)
+shape = SubResource("SphereShape3D_3mf38")
+
+[node name="SubjectInfo" parent="." instance=ExtResource("3_lm0sm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+aabb = AABB(-0.216464, -0.169601, -0.221392, 0.432926, 0.406586, 0.442781)
+subject_data = ExtResource("4_srnqj")
+
+[node name="SoundReceiver" parent="." instance=ExtResource("5_b3em6")]
+
+[connection signal="sound_received" from="SoundReceiver" to="." method="_on_sound_received"]

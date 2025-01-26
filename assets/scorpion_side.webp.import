@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lbum13gas50"
-path="res://.godot/imported/scorpion.webp-035524265b0b0a0f0c5772a159c03bf0.ctex"
+uid="uid://gqdbim5387mw"
+path.s3tc="res://.godot/imported/scorpion_side.webp-069fe5de47c04edb0e0cd992450870d0.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/scorpion.webp"
-dest_files=["res://.godot/imported/scorpion.webp-035524265b0b0a0f0c5772a159c03bf0.ctex"]
+source_file="res://assets/scorpion_side.webp"
+dest_files=["res://.godot/imported/scorpion_side.webp-069fe5de47c04edb0e0cd992450870d0.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
