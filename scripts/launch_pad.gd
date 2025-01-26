@@ -1,18 +1,23 @@
 extends Area3D
+class_name Launchpad
 
 var interact_prompt_text: PromptPanel
 var game_ended = false
 
 var end_screen_template: PackedScene = preload("uid://csobghoi5ix8p")
 
-var can_end_game = false
+var player_present = false
+var end_enabled = false
+
+func _can_end_game():
+	return player_present && end_enabled
 
 func _ready() -> void:
 	var ui_root = get_tree().get_first_node_in_group("camera_hidden")
 	interact_prompt_text = ui_root.find_child("PromptPanel")
 
 func _input(event: InputEvent) -> void:
-	if(game_ended || !can_end_game):
+	if(game_ended || !_can_end_game()):
 		return
 	if(event.is_action_pressed("tool_use") && Globals.tool == Globals.Tool.NONE):
 		interact_prompt_text.clear_text()
@@ -21,13 +26,13 @@ func _input(event: InputEvent) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if(body != Globals.player):
 		return
-	can_end_game = true
+	player_present = true
 	interact_prompt_text.set_text("Exit Biosphere")
 
 func _on_body_exited(body: Node3D) -> void:
 	if(body != Globals.player):
 		return
-	can_end_game = false
+	player_present = false
 	interact_prompt_text.clear_text()
 
 func end_game():

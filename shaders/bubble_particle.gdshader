@@ -3,6 +3,7 @@ render_mode cull_back;
 
 uniform vec4 bubble_color: source_color;
 uniform float fresnel_amount = 5.0;
+uniform sampler2D environment: source_color, hint_default_transparent;
 
 varying float particle_alpha;
 varying vec3 VERTEX_POSITION_WORLD;
@@ -18,11 +19,12 @@ void vertex() {
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
-	float dist = distance(CAMERA_POSITION_WORLD, VERTEX_POSITION_WORLD);
-	float dist_alpha = smoothstep(5.0, 10.0, dist);
+	
+	
+	
+	//vec4 environment_sample = texture(environment, P)
 	ALBEDO = bubble_color.rgb;
-	ALPHA = bubble_color.a * fresnel(fresnel_amount, NORMAL, VIEW) * particle_alpha * dist_alpha;
+	ALPHA = bubble_color.a * fresnel(fresnel_amount, NORMAL, VIEW) * particle_alpha;
 	METALLIC = 1.0;
 	ROUGHNESS = .0;
 }
