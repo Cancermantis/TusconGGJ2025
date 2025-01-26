@@ -44,20 +44,28 @@ CTRL / Right Trigger:
 visible = false
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CameraControls"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CameraControls"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="CameraControls/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Esc / gamepad Start: 
+      -Show/Hide controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CameraControls/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CameraControls/HBoxContainer"]
+[node name="Label" type="Label" parent="CameraControls/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Q / gamepad B: 
-  -Ready/Stow Camera
+  -Ready/Stow Camera"
 
-Esc / gamepad Start: 
-  -Show/Hide controls"
-
-[node name="Label2" type="Label" parent="CameraControls/HBoxContainer"]
+[node name="Label2" type="Label" parent="CameraControls/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 18

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buaglns5jw28d" path="res://scenes/UI/prompt_panel.tscn" id="3_dhvti"]
 [ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://scenes/hands.tscn" id="3_e615s"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://scenes/photo_camera.tscn" id="3_qq3wa"]
-[ext_resource type="PackedScene" path="res://scenes/pulse.tscn" id="7_2sh3b"]
+[ext_resource type="PackedScene" uid="uid://bvaaljidsnlbo" path="res://scenes/pulse.tscn" id="7_2sh3b"]
 [ext_resource type="PackedScene" uid="uid://bdr6kgksd2ajn" path="res://scenes/UI/tutorial_widget.tscn" id="7_i6w24"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sscjo"]
@@ -61,7 +61,7 @@ grow_vertical = 1
 size_flags_horizontal = 4
 
 [node name="Hands" parent="." node_paths=PackedStringArray("viewport_texture") instance=ExtResource("3_e615s")]
-position = Vector2(240, 270)
+position = Vector2(300, 360)
 viewport_texture = NodePath("../WorldContainer")
 
 [node name="PhotoCamera" parent="." node_paths=PackedStringArray("viewport") instance=ExtResource("3_qq3wa")]
@@ -88,7 +88,7 @@ offset_bottom = 79.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Biosphere 3"
+text = "Sonoran Snaps"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="StartMenu"]
@@ -107,6 +107,13 @@ grow_vertical = 0
 text = "Start"
 
 [node name="Pulse" parent="." instance=ExtResource("7_2sh3b")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TutorialWidget" parent="." instance=ExtResource("7_i6w24")]
 

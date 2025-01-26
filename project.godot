@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Tucson GGJ2025"
+config/name="Sonoran Snaps"
+config/description="Game jam project for the Tucson 2025 Global Game Jam"
 run/main_scene="res://world_container.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -26,6 +27,7 @@ window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/mode=3
 window/stretch/mode="viewport"
+window/stretch/scale=0.75
 
 [dotnet]
 
