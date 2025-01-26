@@ -36,7 +36,8 @@ size_flags_vertical = 0
 visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-tooltip_text = "Number of animal types in the Biosphere that weren't captured on film"
+tooltip_text = "Number of animal types in the envir-
+onment that weren't captured on film"
 
 [node name="Count" type="Label" parent="PanelContainer/VBoxContainer/AnimalList/UnphotographedCount"]
 layout_mode = 2
