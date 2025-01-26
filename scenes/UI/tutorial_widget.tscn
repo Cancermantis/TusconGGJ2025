@@ -27,17 +27,17 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="MoveControls/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "WASD or Left Joystick: 
+text = "WASD / Left Joystick: 
   -Move
-Mouse or Right Joystick: 
+Mouse / Right Joystick: 
   -Look Around"
 
 [node name="Label2" type="Label" parent="MoveControls/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Shift or Right Shoulder Button: 
+text = "Shift / Right Shoulder Button: 
   -Sprint
-CTRL or Right Trigger: 
+CTRL / Right Trigger: 
   -Sneak"
 
 [node name="CameraControls" type="PanelContainer" parent="."]
@@ -51,7 +51,7 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="CameraControls/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Q or gamepad B: 
+text = "Q / gamepad B: 
   -Ready/Stow Camera
 
 Esc / gamepad Start: 
@@ -61,7 +61,7 @@ Esc / gamepad Start:
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 18
-text = "E or gamepad A: 
+text = "E / gamepad A: 
   -Camera ready: Take photo
   -Camera stowed: Interact
 "

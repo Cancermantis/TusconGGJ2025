@@ -6,6 +6,7 @@ var photo_tile_scene: PackedScene = preload("uid://dsnhm4a0s1bgb")
 @onready var animal_list: HBoxContainer = $PanelContainer/VBoxContainer/AnimalList
 @onready var album: HFlowContainer = $PanelContainer/VBoxContainer/HScrollBar/Album
 
+var photo_list: Array[PhotoTile]
 
 var subjects_identified: Array[SubjectInfo]
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	
 	for photo: ImageTexture in Globals.photo_camera.photo_data.keys():
 		var photo_tile: PhotoTile = photo_tile_scene.instantiate()
+		photo_list.append(photo_tile)
 		photo_tile.set_photo(photo, Globals.photo_camera.photo_data[photo])
 		album.add_child(photo_tile)		
 		photo_tile.photo_selected.connect(_on_photo_clicked)
@@ -57,4 +59,25 @@ func _on_end_button_pressed() -> void:
 	tween.tween_property(self, "modulate", Color.BLACK, .5)
 	tween.tween_interval(.5)
 	await tween.finished
+	_save_photos()
 	get_tree().change_scene_to_file("uid://bwvtgy22th56p")
+
+func _save_photos():
+	var date_string = Time.get_datetime_string_from_system()
+	date_string = date_string.replace("T", "_")
+	date_string = date_string.replace(":", "-")
+	
+	var screenshot_folder: String = "user://screenshots/" + date_string
+	var dir = DirAccess.open("user://")
+	dir.make_dir_recursive(screenshot_folder)
+	var screenshot_path: String = screenshot_folder + "/photo_%02d.png"
+	
+	for i in range(photo_list.size()):
+		var photo: PhotoTile = photo_list[i]
+		if(photo.save_button.button_pressed):
+			photo.texture.get_image().save_png(screenshot_path % i)
+
+
+func _on_save_all_pressed() -> void:
+	for photo_tile: PhotoTile in photo_list:
+		photo_tile.save_button.button_pressed = true
