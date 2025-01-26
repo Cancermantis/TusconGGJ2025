@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://oibu1ufv88mv" path="res://assets/audio/Env_DesertWind.ogg" id="2_o70i7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e6wjk"]
-radius = 50.0
+radius = 100.0
 
 [node name="EnvironmentAudio" type="Area3D"]
 monitorable = false
