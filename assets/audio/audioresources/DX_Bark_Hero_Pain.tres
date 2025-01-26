@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=9 format=3 uid="uid://b0knjbkijjvoq"]
+
+[ext_resource type="AudioStream" uid="uid://bxrelhvxja0sh" path="res://assets/audio/DX_Bark_Hero_Pain_01.wav" id="1_fgevq"]
+[ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="1_hwalt"]
+[ext_resource type="AudioStream" uid="uid://8k7lvkaeue7o" path="res://assets/audio/DX_Bark_Hero_Pain_02.wav" id="2_md1td"]
+[ext_resource type="AudioStream" uid="uid://cquv5b3biko0m" path="res://assets/audio/DX_Bark_Hero_Pain_03.wav" id="3_ya3ri"]
+[ext_resource type="AudioStream" uid="uid://fufypq4meul6" path="res://assets/audio/DX_Bark_Hero_Pain_04.wav" id="4_e8ko2"]
+[ext_resource type="AudioStream" uid="uid://cq5egklfa34jc" path="res://assets/audio/DX_Bark_Hero_Pain_05.wav" id="5_otlaa"]
+[ext_resource type="AudioStream" uid="uid://c3hof7cwj7tvw" path="res://assets/audio/DX_Bark_Hero_Pain_06.wav" id="6_jec6y"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3vs8n"]
+streams_count = 6
+stream_0/stream = ExtResource("1_fgevq")
+stream_1/stream = ExtResource("2_md1td")
+stream_2/stream = ExtResource("3_ya3ri")
+stream_3/stream = ExtResource("4_e8ko2")
+stream_4/stream = ExtResource("5_otlaa")
+stream_5/stream = ExtResource("6_jec6y")
+
+[resource]
+script = ExtResource("1_hwalt")
+Sound = SubResource("AudioStreamRandomizer_3vs8n")
+VoiceLimit = 2
+AudioBus = "Hero"
+Attenuation = 1
+MaxDistance = 10.0
+PlaybackPitch = 1.0
+MaxPolyphony = 2.0

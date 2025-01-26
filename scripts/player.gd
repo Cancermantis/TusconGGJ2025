@@ -9,6 +9,7 @@ const LOOK_SPEED := 2.0
 @export var mouse_sensitivity := 5e-3
 @onready var camera: Camera3D = $Camera3D
 @onready var broadcaster: SoundBroadcaster = $SoundBroadcaster
+@onready var limited_audio_stream_player: LimitedAudioStreamPlayer = $LimitedAudioStreamPlayer
 
 var stealth: bool = false
 var sprinting: bool = false
@@ -92,6 +93,7 @@ func check_collisions() -> void:
 		var collider := collision.get_collider()
 		if collider.is_in_group("thorn"):
 			Globals.hit_thorn.emit()
+			limited_audio_stream_player.play()
 			var dir: Vector3 = position - collider.position
 			bounce += Vector2(dir.x, dir.y).normalized()
 			bounce_time = 0.2
