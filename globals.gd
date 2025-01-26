@@ -1,5 +1,7 @@
 extends Node
 
+signal hit_thorn
+
 var bubble_size := 99
 var player: Player
 var rng := RandomNumberGenerator.new()

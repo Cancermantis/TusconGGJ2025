@@ -62,4 +62,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, current_max_speed)
 		velocity.z = move_toward(velocity.z, 0, current_max_speed)
 	broadcaster.base_volume = velocity.length() / SPEED
-	move_and_slide()
+	if move_and_slide():
+		check_collisions()
+
+func check_collisions() -> void:
+	# Just check for thorns for now.
+	for i in range(get_slide_collision_count()):
+		var collision := get_slide_collision(i)
+		var collider := collision.get_collider()
+		if collider.is_in_group("thorn"):
+			Globals.hit_thorn.emit()
+			# Doesn't matter how many.
+			break

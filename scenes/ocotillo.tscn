@@ -18,7 +18,7 @@ animations = [{
 radius = 0.2
 height = 1.0
 
-[node name="SaguaroSmall" type="StaticBody3D"]
+[node name="SaguaroSmall" type="StaticBody3D" groups=["thorn"]]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.4, 0)
 script = ExtResource("1_4b7ek")
 
