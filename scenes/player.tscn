@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cq5egklfa34jc" path="res://assets/audio/DX_Bark_Hero_Pain_05.wav" id="7_y7pxr"]
 [ext_resource type="AudioStream" uid="uid://c3hof7cwj7tvw" path="res://assets/audio/DX_Bark_Hero_Pain_06.wav" id="8_6bf40"]
 [ext_resource type="Script" path="res://scripts/LimitedAudioStreamPlayer.gd" id="9_ycbhb"]
-[ext_resource type="Resource" uid="uid://b0knjbkijjvoq" path="res://assets/audio/audioresources/DX_Bark_Hero_Pain.tres" id="10_114v8"]
+[ext_resource type="Resource" uid="uid://bbshse17yfvtf" path="res://assets/audio/audioresources/DX_Bark_Hero_Pain.tres" id="10_114v8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_we4my"]
 

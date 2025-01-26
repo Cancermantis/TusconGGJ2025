@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sound_Limited" load_steps=7 format=3 uid="uid://mbpvlpqedbt3"]
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=7 format=3 uid="uid://dmjda1lb1hsml"]
 
 [ext_resource type="AudioStream" uid="uid://dgiqxcirh4um2" path="res://assets/audio/Anim_Roadrunner_Call_01.wav" id="1_3e33r"]
 [ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="1_f4i0a"]

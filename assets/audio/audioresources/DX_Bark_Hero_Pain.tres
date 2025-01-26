@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sound_Limited" load_steps=9 format=3 uid="uid://b0knjbkijjvoq"]
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=9 format=3 uid="uid://bbshse17yfvtf"]
 
 [ext_resource type="AudioStream" uid="uid://bxrelhvxja0sh" path="res://assets/audio/DX_Bark_Hero_Pain_01.wav" id="1_fgevq"]
 [ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="1_hwalt"]
