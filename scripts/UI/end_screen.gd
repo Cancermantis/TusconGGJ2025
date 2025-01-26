@@ -5,6 +5,8 @@ var photo_tile_scene: PackedScene = preload("uid://dsnhm4a0s1bgb")
 
 @onready var animal_list: HBoxContainer = $PanelContainer/VBoxContainer/AnimalList
 @onready var album: HFlowContainer = $PanelContainer/VBoxContainer/HScrollBar/Album
+@onready var missing_list: Control = $PanelContainer/VBoxContainer/AnimalList/UnphotographedCount
+@onready var missing_count: Label = $PanelContainer/VBoxContainer/AnimalList/UnphotographedCount/Count
 
 var photo_list: Array[PhotoTile]
 
@@ -38,8 +40,10 @@ func _ready() -> void:
 		subjects_available.erase(subject_type)
 	
 	if(subjects_available.size() > 0):
-		$PanelContainer/VBoxContainer/AnimalList/UnphotographedCount/Count.text = "Missing: x" + str(subjects_available.size())
-		$PanelContainer/VBoxContainer/AnimalList/UnphotographedCount.visible = true
+		animal_list.remove_child(missing_list)
+		animal_list.add_child(missing_list)
+		missing_count.text = "Missing: x" + str(subjects_available.size())
+		missing_list.visible = true
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Globals.ui_mode = true
