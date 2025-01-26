@@ -17,13 +17,17 @@ func spawn_plants():
 	var space_state := get_world_3d().direct_space_state
 	var cholla := preload("res://scenes/cholla.tscn")
 	var ocotillo := preload("res://scenes/ocotillo.tscn")
+	var mesquite := preload("res://scenes/mesquite.tscn")
 	var pear := preload("res://scenes/pear.tscn")
 	var poppy := preload("res://scenes/poppy.tscn")
 	var rock := preload("res://scenes/rock.tscn")
 	var saguaro := preload("res://scenes/saguaro.tscn")
 	var saguaro_dead := preload("res://scenes/saguaro_dead.tscn")
+	var saguaro_small := preload("res://scenes/saguaro_small.tscn")
 	for i in range(200):
 		spawn_plant(cholla)
+	for i in range(20):
+		spawn_plant(mesquite)
 	for i in range(100):
 		spawn_plant(ocotillo)
 	for i in range(300):
@@ -32,10 +36,12 @@ func spawn_plants():
 		spawn_plant(poppy)
 	for i in range(50):
 		spawn_plant(rock)
-	for i in range(100):
+	for i in range(40):
 		spawn_plant(saguaro)
 	for i in range(5):
 		spawn_plant(saguaro_dead)
+	for i in range(60):
+		spawn_plant(saguaro_small)
 	# Animals, too.
 	var coyote := preload("res://scenes/coyote.tscn")
 	var javelina := preload("res://scenes/javelina.tscn")
