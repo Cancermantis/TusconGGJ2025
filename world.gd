@@ -49,11 +49,11 @@ func spawn_plants():
 	var scorpion := preload("res://scenes/scorpion.tscn")
 	for i in range(2):
 		# Spawn above the ground to help prevent them getting stuck.
-		spawn_plant(coyote, 1)
-		spawn_plant(javelina, 1)
-		spawn_plant(roadrunner, 1)
+		spawn_plant(coyote, 2)
+		spawn_plant(javelina, 2)
+		spawn_plant(roadrunner, 2)
 	for i in range(5):
-		spawn_plant(scorpion, 1)
+		spawn_plant(scorpion, 2)
 
 @onready var plants: Node3D = $Plants
 @onready var _space_state := get_world_3d().direct_space_state
