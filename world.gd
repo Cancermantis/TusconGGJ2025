@@ -24,6 +24,7 @@ func spawn_plants():
 	var saguaro := preload("res://scenes/saguaro.tscn")
 	var saguaro_dead := preload("res://scenes/saguaro_dead.tscn")
 	var saguaro_small := preload("res://scenes/saguaro_small.tscn")
+	var agave := preload("res://scenes/agave.tscn")
 	for i in range(200):
 		spawn_plant(cholla)
 	for i in range(20):
@@ -42,6 +43,8 @@ func spawn_plants():
 		spawn_plant(saguaro_dead)
 	for i in range(60):
 		spawn_plant(saguaro_small)
+	for i in range(20):
+		spawn_plant(agave)
 	# Animals, too.
 	var coyote := preload("res://scenes/coyote.tscn")
 	var javelina := preload("res://scenes/javelina.tscn")

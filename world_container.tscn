@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwvtgy22th56p"]
+[gd_scene load_steps=11 format=3 uid="uid://bwvtgy22th56p"]
 
 [ext_resource type="Script" path="res://scripts/world_container.tres.gd" id="1_bj3y1"]
 [ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://scenes/hands.tscn" id="3_e615s"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://scenes/photo_camera.tscn" id="3_qq3wa"]
 [ext_resource type="PackedScene" uid="uid://bvaaljidsnlbo" path="res://scenes/pulse.tscn" id="7_2sh3b"]
+[ext_resource type="Texture2D" uid="uid://bspwr7r2ad26d" path="res://assets/logo.png" id="7_6d256"]
 [ext_resource type="PackedScene" uid="uid://bdr6kgksd2ajn" path="res://scenes/UI/tutorial_widget.tscn" id="7_i6w24"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sscjo"]
@@ -77,6 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="StartMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -105,6 +107,15 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Start"
+
+[node name="TextureRect" type="TextureRect" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_right = 1.0
+grow_horizontal = 0
+texture = ExtResource("7_6d256")
+expand_mode = 5
 
 [node name="Pulse" parent="." instance=ExtResource("7_2sh3b")]
 anchors_preset = 15
