@@ -1,9 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://clgl0q6fc8gmu"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c7sypjkhfoie6"]
 
 [ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="1_ke3hx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_osi2n"]
-fractal_octaves = 3
 fractal_weighted_strength = 0.5
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ml1w"]

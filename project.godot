@@ -41,6 +41,7 @@ photo_camera="Node group for quickly and easily finding the PhotoCamera node fro
 camera_hidden="Group for all visual nodes that shouldn't be visible when a photo is taken"
 photo_subject=""
 world_texture=""
+thorn=""
 tutorial=""
 
 [input]

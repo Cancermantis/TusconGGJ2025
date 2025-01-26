@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwvtgy22th56p"]
+[gd_scene load_steps=11 format=3 uid="uid://bwvtgy22th56p"]
 
 [ext_resource type="PackedScene" uid="uid://cn1w3ba6h2fpi" path="res://world.tscn" id="1_l5tyx"]
 [ext_resource type="PackedScene" uid="uid://uce58xxi1bo1" path="res://prototypes/camera_debug.tscn" id="2_78wtc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://colfj1x4cv2ae" path="res://scenes/hands.tscn" id="3_e615s"]
 [ext_resource type="PackedScene" uid="uid://cbbiwkwa3bagq" path="res://scenes/photo_camera.tscn" id="3_qq3wa"]
 [ext_resource type="Texture2D" uid="uid://d0jlvsms8gdux" path="res://icon.svg" id="6_avk3u"]
+[ext_resource type="PackedScene" uid="uid://bvaaljidsnlbo" path="res://scenes/pulse.tscn" id="7_2sh3b"]
 [ext_resource type="PackedScene" uid="uid://bdr6kgksd2ajn" path="res://scenes/UI/tutorial_widget.tscn" id="7_i6w24"]
 
 [sub_resource type="GDScript" id="GDScript_gm78l"]
@@ -145,6 +146,8 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Start"
+
+[node name="Pulse" parent="." instance=ExtResource("7_2sh3b")]
 
 [node name="TutorialWidget" parent="." instance=ExtResource("7_i6w24")]
 
