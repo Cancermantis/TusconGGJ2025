@@ -14,7 +14,7 @@ config/name="Sonoran Snaps"
 config/description="Game jam project for the Tucson 2025 Global Game Jam"
 run/main_scene="res://world_container.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon_javelina.webp"
 
 [autoload]
 

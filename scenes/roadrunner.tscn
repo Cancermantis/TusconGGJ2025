@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://7jnxln00tquv"]
+[gd_scene load_steps=20 format=3 uid="uid://7jnxln00tquv"]
 
 [ext_resource type="Script" path="res://scripts/animal.gd" id="1_6v6mk"]
 [ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="2_ew75q"]
 [ext_resource type="Texture2D" uid="uid://cwdo24xnsip0f" path="res://assets/roadrunner.webp" id="2_fjuc5"]
 [ext_resource type="Texture2D" uid="uid://cbo1we0tfi6er" path="res://assets/Road_Runner_Running_Forward_sprite_sheet.png" id="3_7tf0u"]
 [ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_vgmni"]
+[ext_resource type="Texture2D" uid="uid://cvipktef4jqx3" path="res://assets/Road_Runner_walking_away.png" id="4_5pqx3"]
 [ext_resource type="Resource" uid="uid://msuwd8qow58m" path="res://data/roadrunner.tres" id="4_neghg"]
 [ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="6_m7cxu"]
 [ext_resource type="Resource" uid="uid://dmjda1lb1hsml" path="res://assets/audio/audioresources/Anim_Roadrunner_Call.tres" id="7_1tro5"]
@@ -31,6 +32,14 @@ region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o62ld"]
 atlas = ExtResource("3_7tf0u")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7ow8"]
+atlas = ExtResource("4_5pqx3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46kag"]
+atlas = ExtResource("4_5pqx3")
 region = Rect2(0, 96, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d13l7"]
@@ -62,6 +71,17 @@ animations = [{
 "loop": true,
 "name": &"forward",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7ow8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46kag")
+}],
+"loop": true,
+"name": &"run_away",
+"speed": 5.0
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3mf38"]
@@ -76,8 +96,7 @@ move_speed = 8.8
 billboard = 1
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_d13l7")
-animation = &"forward"
-frame_progress = 0.207535
+animation = &"run_away"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.110234, 0, 0)
