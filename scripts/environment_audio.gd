@@ -5,10 +5,10 @@ extends Area3D
 
 
 func _on_area_entered(area: Area3D) -> void:
-	#var start_time = randf_range(0,100)
-	#audio_stream_player.play(start_time)
+	var start_time = randf_range(0,100)
+	audio_stream_player.play(start_time)
 	AudioManager.inside_dome = true
 
 func _on_area_exited(area: Area3D) -> void:
-	#audio_stream_player.stop()
+	audio_stream_player.stop()
 	AudioManager.inside_dome = false

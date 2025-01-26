@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://nl6gtluk5bv2"]
+
+[ext_resource type="Script" path="res://scripts/limited_audio_stream_3d.gd" id="1_ch84c"]
+
+[sub_resource type="GDScript" id="GDScript_vqswh"]
+script/source = "extends Node3D
+@onready var audio_cooldown_min_max: Array[float] = [4,12]
+@onready var timer: Timer = $Timer
+@onready var limited_audio_stream_player_3d: LimitedAudioStreamPlayer3D = $LimitedAudioStreamPlayer3D
+@export var sound: Sound_Limited
+
+func _ready() -> void:
+	timer.timeout.connect(try_play_sound)
+	limited_audio_stream_player_3d.limited_sound = sound
+	
+func loop_audio():
+	var timer_time = randf_range(audio_cooldown_min_max.min(),audio_cooldown_min_max.max())
+	timer.start(timer_time)
+	
+	
+func try_play_sound():
+	if abs(Player.global_position - self.global_position) <= sound.MaxDistance:
+		limited_audio_stream_player_3d.limited_play()
+	loop_audio()
+"
+
+[node name="AudioLoopPlayer" type="Node3D"]
+script = SubResource("GDScript_vqswh")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LimitedAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+script = ExtResource("1_ch84c")

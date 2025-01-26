@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdr6kgksd2ajn"]
+
+[ext_resource type="Script" path="res://scripts/UI/tutorial_widget.gd" id="1_cybop"]
+
+[node name="TutorialWidget" type="VBoxContainer" groups=["tutorial"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cybop")
+
+[node name="MoveControls" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MoveControls"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MoveControls/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "WASD or Left Joystick: 
+  -Move
+Mouse or Right Joystick: 
+  -Look Around"
+
+[node name="Label2" type="Label" parent="MoveControls/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Shift or Right Shoulder Button: 
+  -Sprint
+CTRL or Right Trigger: 
+  -Sneak"
+
+[node name="CameraControls" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CameraControls"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CameraControls/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Q or gamepad B: 
+  -Ready/Stow Camera
+
+Esc / gamepad Start: 
+  -Show/Hide controls"
+
+[node name="Label2" type="Label" parent="CameraControls/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "E or gamepad A: 
+  -Camera ready: Take photo
+  -Camera stowed: Interact
+"
+
+[node name="Instructions" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Instructions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Take as many photos as you like.
+Try to photograph different types of animals.
+Move carefully, loud noises will scare them.
+Return to the pad when you're ready to leave."
+horizontal_alignment = 1

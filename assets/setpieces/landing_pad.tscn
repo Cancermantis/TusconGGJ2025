@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciesp75prk3ng"]
+[gd_scene load_steps=9 format=3 uid="uid://ciesp75prk3ng"]
 
 [ext_resource type="Animation" uid="uid://bncxvuxk8xf2u" path="res://SceneAnimations/player_enter.res" id="1_77pmu"]
+[ext_resource type="PackedScene" path="res://scenes/launch_pad.tscn" id="2_7sh5t"]
+[ext_resource type="PackedScene" uid="uid://bfhi4pkq77b3o" path="res://scenes/tutorial_initializer.tscn" id="3_8wmla"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_rp452"]
 top_radius = 2.0
@@ -70,3 +72,12 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CylinderShape3D_omt3y")
+
+[node name="LaunchPad" parent="." instance=ExtResource("2_7sh5t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="TutorialInitializer" parent="." node_paths=PackedStringArray("launchpad") instance=ExtResource("3_8wmla")]
+launchpad = NodePath("../LaunchPad")
+
+[connection signal="body_entered" from="LaunchPad" to="TutorialInitializer" method="_on_launch_pad_body_entered"]
+[connection signal="body_exited" from="LaunchPad" to="TutorialInitializer" method="_on_launch_pad_body_exited"]
