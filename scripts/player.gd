@@ -55,6 +55,13 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if bounce_time > 0:
+		bounce = bounce.normalized()
+		direction.x = bounce.x
+		direction.z = bounce.y
+		bounce_time -= delta
+	else:
+		bounce = Vector2.ZERO
 	if direction:
 		velocity.x = direction.x * current_max_speed
 		velocity.z = direction.z * current_max_speed
@@ -65,6 +72,9 @@ func _physics_process(delta: float) -> void:
 	if move_and_slide():
 		check_collisions()
 
+var bounce := Vector2.ZERO
+var bounce_time := 0.0
+
 func check_collisions() -> void:
 	# Just check for thorns for now.
 	for i in range(get_slide_collision_count()):
@@ -72,5 +82,8 @@ func check_collisions() -> void:
 		var collider := collision.get_collider()
 		if collider.is_in_group("thorn"):
 			Globals.hit_thorn.emit()
+			var dir: Vector3 = position - collider.position
+			bounce += Vector2(dir.x, dir.y).normalized()
+			bounce_time = 0.2
 			# Doesn't matter how many.
 			break
