@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=7 format=3 uid="uid://mbpvlpqedbt3"]
+
+[ext_resource type="AudioStream" uid="uid://dgiqxcirh4um2" path="res://assets/audio/Anim_Roadrunner_Call_01.wav" id="1_3e33r"]
+[ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="1_f4i0a"]
+[ext_resource type="AudioStream" uid="uid://bdul483ao1pre" path="res://assets/audio/Anim_Roadrunner_Call_02.wav" id="2_71v6v"]
+[ext_resource type="AudioStream" uid="uid://0tac1w7dhvoj" path="res://assets/audio/Anim_Roadrunner_Call_03.wav" id="3_df8r2"]
+[ext_resource type="AudioStream" uid="uid://d34idlqjddd8u" path="res://assets/audio/Anim_Roadrunner_Call_04.wav" id="4_rsxuj"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1hx50"]
+streams_count = 4
+stream_0/stream = ExtResource("1_3e33r")
+stream_0/weight = 20.0
+stream_1/stream = ExtResource("2_71v6v")
+stream_1/weight = 20.0
+stream_2/stream = ExtResource("3_df8r2")
+stream_2/weight = 20.0
+stream_3/stream = ExtResource("4_rsxuj")
+
+[resource]
+script = ExtResource("1_f4i0a")
+Sound = SubResource("AudioStreamRandomizer_1hx50")
+VoiceLimit = 8
+AudioBus = "Animals"
+Attenuation = 1
+MaxDistance = 30.0
+PlaybackPitch = 1.0
+MaxPolyphony = 1.0
