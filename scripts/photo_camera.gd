@@ -44,7 +44,7 @@ func take_photo():
 		if(subject.subject_data.cull_distance < distance):
 			continue
 		subject_data.append(subject.subject_data)
-	if subject_data.size() < 2:
+	if subject_data.size() > 0:
 		CameraHit.emit()
 	else:
 		CameraMiss.emit()

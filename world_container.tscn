@@ -42,6 +42,7 @@ script = SubResource("GDScript_gm78l")
 process_mode = 1
 own_world_3d = true
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(800, 450)
 render_target_update_mode = 4
 
@@ -147,5 +148,7 @@ text = "Start"
 
 [node name="TutorialWidget" parent="." instance=ExtResource("7_i6w24")]
 
+[connection signal="CameraHit" from="PhotoCamera" to="Hands" method="play_hit_sound"]
+[connection signal="CameraMiss" from="PhotoCamera" to="Hands" method="play_miss_sound"]
 [connection signal="photo_taken" from="PhotoCamera" to="WorldTexture/CameraDebug" method="_on_photo_camera_photo_taken"]
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_start"]

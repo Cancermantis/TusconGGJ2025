@@ -12,7 +12,7 @@ class_name LimitedAudioStreamPlayer3D
 		stream = limited_sound.Sound
 		max_polyphony =  limited_sound.VoiceLimit
 		bus = limited_sound.AudioBus
-		attenuation_model = limited_sound.Attenuation
+		#attenuation_model = limited_sound.Attenuation
 		max_distance = limited_sound.MaxDistance
 		pitch_scale = limited_sound.PlaybackPitch
 

@@ -8,9 +8,8 @@ radius = 100.0
 
 [node name="EnvironmentAudio" type="Area3D"]
 monitorable = false
-reverb_bus_enabled = true
 reverb_bus_name = &"Reverb"
-reverb_bus_amount = 0.5
+reverb_bus_amount = 0.46
 script = ExtResource("1_oi7wl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -18,6 +17,7 @@ shape = SubResource("SphereShape3D_e6wjk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o70i7")
+volume_db = -12.82
 bus = &"Environment"
 parameters/looping = true
 

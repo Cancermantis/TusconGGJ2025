@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwo6cnt5gdl26"]
+[gd_scene load_steps=6 format=3 uid="uid://cwo6cnt5gdl26"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_4b7ek"]
 [ext_resource type="Texture2D" uid="uid://7qlydbb4rnku" path="res://assets/ocotillo.webp" id="2_h34gw"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="2_tutby"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
 animations = [{
@@ -21,6 +22,8 @@ height = 1.0
 [node name="SaguaroSmall" type="StaticBody3D"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.4, 0)
 script = ExtResource("1_4b7ek")
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("2_tutby")]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2

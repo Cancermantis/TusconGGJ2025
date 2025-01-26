@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpg7qxc2lqdk6"]
+[gd_scene load_steps=6 format=3 uid="uid://bpg7qxc2lqdk6"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_r3av6"]
 [ext_resource type="Texture2D" uid="uid://dpra06slqxeex" path="res://assets/mesquite.webp" id="2_ff4qf"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="2_hcf3t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
 animations = [{
@@ -21,6 +22,8 @@ height = 0.6
 [node name="Mesquite" type="StaticBody3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.8, 0)
 script = ExtResource("1_r3av6")
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("2_hcf3t")]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2

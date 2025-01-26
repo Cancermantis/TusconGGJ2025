@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4g1eelu1nh5i"]
+[gd_scene load_steps=9 format=3 uid="uid://d4g1eelu1nh5i"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_bfq8w"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="2_4is2y"]
 [ext_resource type="Texture2D" uid="uid://cgwtbequkuc12" path="res://assets/pear1.webp" id="2_jer2j"]
 [ext_resource type="Texture2D" uid="uid://b60muw2v27c28" path="res://assets/pear2.webp" id="3_h2ycp"]
 [ext_resource type="Texture2D" uid="uid://cemprmopoehje" path="res://assets/pear_purple.webp" id="4_pj0pf"]
@@ -42,6 +43,8 @@ radius = 0.3
 [node name="Pear" type="StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.96, 0)
 script = ExtResource("1_bfq8w")
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("2_4is2y")]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2

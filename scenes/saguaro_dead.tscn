@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://i5mgk253wu3"]
+[gd_scene load_steps=6 format=3 uid="uid://i5mgk253wu3"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_tb4dm"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="3_3roik"]
 [ext_resource type="Texture2D" uid="uid://osa1vaanxmj3" path="res://assets/saguaro_dead.webp" id="5_xi5h8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
@@ -31,3 +32,5 @@ animation = &"saguaro_dead"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.216, 0)
 shape = SubResource("CapsuleShape3D_imgjy")
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("3_3roik")]

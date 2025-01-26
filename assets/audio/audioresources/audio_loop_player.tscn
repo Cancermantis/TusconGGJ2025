@@ -1,31 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://nl6gtluk5bv2"]
+[gd_scene load_steps=4 format=3 uid="uid://nl6gtluk5bv2"]
 
 [ext_resource type="Script" path="res://scripts/limited_audio_stream_3d.gd" id="1_ch84c"]
+[ext_resource type="Resource" uid="uid://c6ctmdbi2mwoh" path="res://assets/audio/audioresources/Env_Plant_Rustle.tres" id="1_cya47"]
 
 [sub_resource type="GDScript" id="GDScript_vqswh"]
 script/source = "extends Node3D
-@onready var audio_cooldown_min_max: Array[float] = [4,12]
+@onready var audio_cooldown_min_max: Array[float] = [1,2]
 @onready var timer: Timer = $Timer
 @onready var limited_audio_stream_player_3d: LimitedAudioStreamPlayer3D = $LimitedAudioStreamPlayer3D
-@export var sound: Sound_Limited
+@export var soundparent: Sound_Limited
 
 func _ready() -> void:
-	timer.timeout.connect(try_play_sound)
-	limited_audio_stream_player_3d.limited_sound = sound
+	
+	limited_audio_stream_player_3d.limited_sound = soundparent
+	loop_audio()
 	
 func loop_audio():
 	var timer_time = randf_range(audio_cooldown_min_max.min(),audio_cooldown_min_max.max())
 	timer.start(timer_time)
+	await timer.timeout
+	try_play_sound()
 	
 	
 func try_play_sound():
-	if abs(Player.global_position - self.global_position) <= sound.MaxDistance:
+	var player_position = Globals.player.global_position
+	if player_position.distance_to(global_position) <= soundparent.MaxDistance:
 		limited_audio_stream_player_3d.limited_play()
 	loop_audio()
 "
 
 [node name="AudioLoopPlayer" type="Node3D"]
 script = SubResource("GDScript_vqswh")
+soundparent = ExtResource("1_cya47")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

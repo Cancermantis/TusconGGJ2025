@@ -17,6 +17,6 @@ Sound = SubResource("AudioStreamRandomizer_u6b1y")
 VoiceLimit = 6
 AudioBus = "Hero"
 Attenuation = 1
-MaxDistance = 0.0
+MaxDistance = 10.0
 PlaybackPitch = 1.0
 MaxPolyphony = 1.0

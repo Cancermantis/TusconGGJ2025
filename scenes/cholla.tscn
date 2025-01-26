@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chl8swj53rawe"]
+[gd_scene load_steps=7 format=3 uid="uid://chl8swj53rawe"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_ya4g5"]
 [ext_resource type="Texture2D" uid="uid://b3vrq5husx1bf" path="res://assets/cholla1.webp" id="2_nercf"]
 [ext_resource type="Texture2D" uid="uid://ckuhdkfq8oawq" path="res://assets/cholla2.webp" id="3_muacg"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="4_5wqjq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
 animations = [{
@@ -39,3 +40,5 @@ animation = &"cholla1"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0506139, 0)
 shape = SubResource("SphereShape3D_0o4fp")
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("4_5wqjq")]

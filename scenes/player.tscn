@@ -19,6 +19,3 @@ shape = SubResource("CapsuleShape3D_we4my")
 
 [node name="SoundBroadcaster" parent="." instance=ExtResource("2_usvko")]
 area = SubResource("CylinderShape3D_pteol")
-
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
-current = true
