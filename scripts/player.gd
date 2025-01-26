@@ -5,6 +5,7 @@ const SPEED_QUIET := 1.0
 const SPEED := 5.0
 const SPEED_SPRINT := 10.0
 const JUMP_VELOCITY := 4.5
+const LOOK_SPEED := 2.0
 @export var mouse_sensitivity := 5e-3
 @onready var camera: Camera3D = $Camera3D
 @onready var broadcaster: SoundBroadcaster = $SoundBroadcaster
@@ -38,9 +39,16 @@ func _process(delta: float) -> void:
 	if(Globals.ui_mode):
 		return
 	var mouse_delta := Input.get_last_mouse_velocity()
-	rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
-	camera.rotate_x(-mouse_delta.y * mouse_sensitivity * delta)
+	
+	if(mouse_delta != Vector2.ZERO):
+		rotate_y(-mouse_delta.x * mouse_sensitivity * delta)
+		camera.rotate_x(-mouse_delta.y * mouse_sensitivity * delta)
+	else:
+		var joystick_cam = -Input.get_vector("look_left", "look_right", "look_up", "look_down")
+		rotate_y(joystick_cam.x * LOOK_SPEED * delta)
+		camera.rotate_x(joystick_cam.y * LOOK_SPEED * delta)
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -80, 80)
+	
 	if(!input_disabled):
 		position = Globals.keep_in_bubble(position)
 
