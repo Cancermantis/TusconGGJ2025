@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://2yyw8fc3t7xm"]
+[gd_scene load_steps=22 format=3 uid="uid://2yyw8fc3t7xm"]
 
 [ext_resource type="Script" path="res://scripts/animal.gd" id="1_djrnc"]
 [ext_resource type="Texture2D" uid="uid://byn5cjygcl4mu" path="res://assets/coyote.webp" id="2_7pyfw"]
 [ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_8bsnv"]
 [ext_resource type="Texture2D" uid="uid://14k80nmhdr8s" path="res://assets/Frant_Facing_Coyote_Sprite_Sheet.png" id="3_bfhe2"]
+[ext_resource type="Texture2D" uid="uid://bs05dq22wmtyl" path="res://assets/Coyote_Walking_away.png" id="4_jmd1c"]
 [ext_resource type="Resource" uid="uid://cyrasese2ojun" path="res://data/coyote.tres" id="4_qgr2s"]
 [ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="5_inewr"]
 [ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="6_ppfxa"]
@@ -41,6 +42,14 @@ region = Rect2(0, 96, 96, 96)
 atlas = ExtResource("3_bfhe2")
 region = Rect2(96, 96, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt7kk"]
+atlas = ExtResource("4_jmd1c")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm1tx"]
+atlas = ExtResource("4_jmd1c")
+region = Rect2(0, 96, 96, 96)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d13l7"]
 animations = [{
 "frames": [{
@@ -76,6 +85,17 @@ animations = [{
 "loop": true,
 "name": &"forward",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt7kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm1tx")
+}],
+"loop": true,
+"name": &"run_away",
+"speed": 5.0
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3mf38"]
@@ -90,8 +110,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 billboard = 1
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_d13l7")
-frame = 1
-frame_progress = 0.85266
+animation = &"run_away"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -0.0466337, 0, 0)
