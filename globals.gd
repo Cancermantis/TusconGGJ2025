@@ -22,7 +22,8 @@ signal tool_changed(tool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Globals.rng.seed = seed
+	#Globals.rng.seed = seed
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
