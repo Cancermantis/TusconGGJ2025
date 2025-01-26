@@ -17,8 +17,10 @@ func set_text(text: String):
 func clear_text():
 	if(tween):
 		tween.kill()
-	
-	tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.25)
-	await tween.finished
-	visible = false
+
+	var tree := get_tree()
+	if tree != null:
+		tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.25)
+		await tween.finished
+		visible = false
