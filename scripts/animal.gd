@@ -77,5 +77,6 @@ func flee(delta: float) -> void:
 	update_facing()
 
 func _on_sound_received() -> void:
-	sprite.play("run_away")
+	if sprite.animation.contains("run_away"):
+		sprite.play("run_away")
 	state = flee

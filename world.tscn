@@ -6,11 +6,11 @@
 [ext_resource type="Material" uid="uid://b3y4aelmrpynk" path="res://shaders/sky.tres" id="3_lgo5p"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="4_bo63a"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dq44ot1nty1bp" path="res://world.occ" id="6_5eijw"]
-[ext_resource type="Material" uid="uid://clgl0q6fc8gmu" path="res://data/terrain_material.tres" id="6_yj4rk"]
+[ext_resource type="Material" uid="uid://c7sypjkhfoie6" path="res://data/terrain_material.tres" id="6_yj4rk"]
 [ext_resource type="PackedScene" uid="uid://cb4i5j1fq75ek" path="res://assets/setpieces/bubbles_fx.tscn" id="8_uaarj"]
 [ext_resource type="PackedScene" uid="uid://cqo2i0wf2cif1" path="res://assets/setpieces/dome.tscn" id="9_stswf"]
 [ext_resource type="PackedScene" uid="uid://ciesp75prk3ng" path="res://assets/setpieces/landing_pad.tscn" id="10_8vo4k"]
-[ext_resource type="PackedScene" path="res://assets/audio/audioresources/Environment_Audio.tscn" id="19_81lwx"]
+[ext_resource type="PackedScene" uid="uid://bfm6uk35e3ahl" path="res://assets/audio/audioresources/Environment_Audio.tscn" id="19_81lwx"]
 
 [sub_resource type="Sky" id="Sky_uol04"]
 sky_material = ExtResource("3_lgo5p")
@@ -55,6 +55,10 @@ occluder = ExtResource("6_5eijw")
 [node name="Dome" parent="WorldBubble" instance=ExtResource("9_stswf")]
 
 [node name="LandingPad" parent="WorldBubble" instance=ExtResource("10_8vo4k")]
+
+[node name="AudioStreamPlayer" parent="WorldBubble/LandingPad" index="4"]
+max_polyphony = 3
+bus = &"Hero"
 
 [node name="Plants" type="Node3D" parent="."]
 

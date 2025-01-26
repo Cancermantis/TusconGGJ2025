@@ -1,6 +1,7 @@
 extends Area3D
 class_name Launchpad
-
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+const EVENT_INTRO_FLY_IN = preload("res://assets/audio/Event_Intro_FlyIn.wav")
 var interact_prompt_text: PromptPanel
 var game_ended = false
 
@@ -37,6 +38,8 @@ func _on_body_exited(body: Node3D) -> void:
 
 func end_game():
 	Globals.player.input_disabled = true
+	audio_stream_player.stream = EVENT_INTRO_FLY_IN
+	audio_stream_player.play()
 	var launch_direction = (-global_basis.z + Vector3(0.0, .75, 0.0)).normalized()
 	var destination = Globals.player.global_position + (launch_direction * 50.0)
 	var tween = get_tree().create_tween()

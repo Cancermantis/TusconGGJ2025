@@ -69,5 +69,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 [node name="TutorialInitializer" parent="." node_paths=PackedStringArray("launchpad") instance=ExtResource("3_8wmla")]
 launchpad = NodePath("../LaunchPad")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="LaunchPad" to="TutorialInitializer" method="_on_launch_pad_body_entered"]
 [connection signal="body_exited" from="LaunchPad" to="TutorialInitializer" method="_on_launch_pad_body_exited"]

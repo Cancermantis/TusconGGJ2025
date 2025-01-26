@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://2yyw8fc3t7xm"]
+[gd_scene load_steps=14 format=3 uid="uid://2yyw8fc3t7xm"]
 
 [ext_resource type="Script" path="res://scripts/animal.gd" id="1_djrnc"]
 [ext_resource type="Texture2D" uid="uid://byn5cjygcl4mu" path="res://assets/coyote.webp" id="2_7pyfw"]
 [ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_8bsnv"]
 [ext_resource type="Resource" uid="uid://cyrasese2ojun" path="res://data/coyote.tres" id="4_qgr2s"]
 [ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="5_inewr"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="6_ppfxa"]
+[ext_resource type="Resource" uid="uid://bj4chhxwkneg1" path="res://assets/audio/audioresources/Anim_Coyote_Call.tres" id="7_hqhr5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljewa"]
 atlas = ExtResource("2_7pyfw")
@@ -66,5 +68,9 @@ aabb = AABB(-0.304239, -0.336293, -0.388247, 0.933672, 0.739969, 0.77649)
 subject_data = ExtResource("4_qgr2s")
 
 [node name="SoundReceiver" parent="." instance=ExtResource("5_inewr")]
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("6_ppfxa")]
+audio_cooldown_min_max = Array[float]([6.0, 14.0])
+soundparent = ExtResource("7_hqhr5")
 
 [connection signal="sound_received" from="SoundReceiver" to="." method="_on_sound_received"]

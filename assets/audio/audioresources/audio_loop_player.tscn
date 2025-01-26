@@ -5,7 +5,7 @@
 
 [sub_resource type="GDScript" id="GDScript_vqswh"]
 script/source = "extends Node3D
-@onready var audio_cooldown_min_max: Array[float] = [1,2]
+@export var audio_cooldown_min_max: Array[float] = [1,2]
 @onready var timer: Timer = $Timer
 @onready var limited_audio_stream_player_3d: LimitedAudioStreamPlayer3D = $LimitedAudioStreamPlayer3D
 @export var soundparent: Sound_Limited
@@ -31,6 +31,7 @@ func try_play_sound():
 
 [node name="AudioLoopPlayer" type="Node3D"]
 script = SubResource("GDScript_vqswh")
+audio_cooldown_min_max = Array[float]([2.0, 10.0])
 soundparent = ExtResource("1_cya47")
 
 [node name="Timer" type="Timer" parent="."]
