@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lbum13gas50"
-path="res://.godot/imported/scorpion.webp-035524265b0b0a0f0c5772a159c03bf0.ctex"
+uid="uid://cffd3kjfumng7"
+path="res://.godot/imported/poppy.webp-d5f57dbed9ae69743d0e65d9fe4a53b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scorpion.webp"
-dest_files=["res://.godot/imported/scorpion.webp-035524265b0b0a0f0c5772a159c03bf0.ctex"]
+source_file="res://assets/poppy.webp"
+dest_files=["res://.godot/imported/poppy.webp-d5f57dbed9ae69743d0e65d9fe4a53b6.ctex"]
 
 [params]
 

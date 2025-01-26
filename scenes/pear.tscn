@@ -42,8 +42,6 @@ radius = 0.3
 [node name="Pear" type="StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.96, 0)
 script = ExtResource("1_bfq8w")
-option = "pear1"
-audio_cooldown_min_max = Array[float]([0.0, 0.0])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2

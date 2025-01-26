@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpg7qxc2lqdk6"]
+
+[ext_resource type="Script" path="res://scripts/plant.gd" id="1_r3av6"]
+[ext_resource type="Texture2D" uid="uid://dpra06slqxeex" path="res://assets/mesquite.webp" id="2_ff4qf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01m5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ff4qf")
+}],
+"loop": true,
+"name": &"saguaro1",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_imgjy"]
+radius = 0.07
+height = 0.6
+
+[node name="Mesquite" type="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.8, 0)
+script = ExtResource("1_r3av6")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_01m5m")
+animation = &"saguaro1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.205626, 0)
+shape = SubResource("CapsuleShape3D_imgjy")

@@ -1,7 +1,9 @@
 extends Node
 
-var bubble_size := 49
+var bubble_size := 99
 var player: Player
+var rng := RandomNumberGenerator.new()
+var seed := 1337
 var photo_camera: PhotoCamera
 var tool := Tool.NONE:
 	get:
@@ -20,7 +22,8 @@ signal tool_changed(tool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	#Globals.rng.seed = seed
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

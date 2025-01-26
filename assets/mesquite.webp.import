@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lbum13gas50"
-path="res://.godot/imported/scorpion.webp-035524265b0b0a0f0c5772a159c03bf0.ctex"
+uid="uid://dpra06slqxeex"
+path="res://.godot/imported/mesquite.webp-36687545524bf534ce2ad7fd71b14efd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scorpion.webp"
-dest_files=["res://.godot/imported/scorpion.webp-035524265b0b0a0f0c5772a159c03bf0.ctex"]
+source_file="res://assets/mesquite.webp"
+dest_files=["res://.godot/imported/mesquite.webp-36687545524bf534ce2ad7fd71b14efd.ctex"]
 
 [params]
 
