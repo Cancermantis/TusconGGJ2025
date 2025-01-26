@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Sound_Limited" load_steps=10 format=3 uid="uid://cb2ugftbjjakv"]
+
+[ext_resource type="Script" path="res://scripts/Sound_Limited.gd" id="1_88exw"]
+[ext_resource type="AudioStream" uid="uid://bpnvsk688rlu2" path="res://assets/audio/Anim_Javelina_Call_01.wav" id="1_u8oco"]
+[ext_resource type="AudioStream" uid="uid://btulc1mlm0yam" path="res://assets/audio/Anim_Javelina_Call_02.wav" id="2_8s7pj"]
+[ext_resource type="AudioStream" uid="uid://b1lk3g7pnkicr" path="res://assets/audio/Anim_Javelina_Call_03.wav" id="3_62ser"]
+[ext_resource type="AudioStream" uid="uid://uc271c10l60s" path="res://assets/audio/Anim_Javelina_Call_04.wav" id="4_7am0k"]
+[ext_resource type="AudioStream" uid="uid://bbnig5myqqnoo" path="res://assets/audio/Anim_Javelina_Call_05.wav" id="5_4alf1"]
+[ext_resource type="AudioStream" uid="uid://do8nbv5tpnkfc" path="res://assets/audio/Anim_Javelina_Call_06.wav" id="6_ty8ou"]
+[ext_resource type="AudioStream" uid="uid://cuj1ce3sbspx1" path="res://assets/audio/Anim_Javelina_Call_07.wav" id="7_0is43"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gjj8b"]
+streams_count = 7
+stream_0/stream = ExtResource("1_u8oco")
+stream_1/stream = ExtResource("2_8s7pj")
+stream_2/stream = ExtResource("3_62ser")
+stream_3/stream = ExtResource("4_7am0k")
+stream_4/stream = ExtResource("5_4alf1")
+stream_5/stream = ExtResource("6_ty8ou")
+stream_6/stream = ExtResource("7_0is43")
+
+[resource]
+script = ExtResource("1_88exw")
+Sound = SubResource("AudioStreamRandomizer_gjj8b")
+VoiceLimit = 8
+AudioBus = "Animals"
+Attenuation = 1
+MaxDistance = 30.0
+PlaybackPitch = 1.0
+MaxPolyphony = 2.0

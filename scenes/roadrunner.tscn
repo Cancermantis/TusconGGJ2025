@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://7jnxln00tquv"]
+[gd_scene load_steps=14 format=3 uid="uid://7jnxln00tquv"]
 
 [ext_resource type="Script" path="res://scripts/animal.gd" id="1_6v6mk"]
 [ext_resource type="PackedScene" uid="uid://dchjl5klwbl8e" path="res://scenes/sound_receiver.tscn" id="2_ew75q"]
 [ext_resource type="Texture2D" uid="uid://cwdo24xnsip0f" path="res://assets/roadrunner.webp" id="2_fjuc5"]
 [ext_resource type="PackedScene" uid="uid://lmaf52lg6p1s" path="res://scenes/photo_subject.tscn" id="3_vgmni"]
 [ext_resource type="Resource" uid="uid://msuwd8qow58m" path="res://data/roadrunner.tres" id="4_neghg"]
+[ext_resource type="PackedScene" uid="uid://nl6gtluk5bv2" path="res://assets/audio/audioresources/audio_loop_player.tscn" id="6_m7cxu"]
+[ext_resource type="Resource" uid="uid://mbpvlpqedbt3" path="res://assets/audio/audioresources/Anim_Roadrunner_Call.tres" id="7_1tro5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iah8s"]
 atlas = ExtResource("2_fjuc5")
@@ -66,5 +68,9 @@ aabb = AABB(-0.216464, -0.169601, -0.221392, 0.432926, 0.406586, 0.442781)
 subject_data = ExtResource("4_neghg")
 
 [node name="SoundReceiver" parent="." instance=ExtResource("2_ew75q")]
+
+[node name="AudioLoopPlayer" parent="." instance=ExtResource("6_m7cxu")]
+audio_cooldown_min_max = Array[float]([4.0, 14.0])
+soundparent = ExtResource("7_1tro5")
 
 [connection signal="sound_received" from="SoundReceiver" to="." method="_on_sound_received"]
