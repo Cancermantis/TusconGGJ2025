@@ -28,7 +28,8 @@ func _on_body_entered(body: Node3D) -> void:
 	if(body != Globals.player):
 		return
 	player_present = true
-	interact_prompt_text.set_text("Exit Biosphere")
+	if(_can_end_game()):
+		interact_prompt_text.set_text("Exit Biosphere")
 
 func _on_body_exited(body: Node3D) -> void:
 	if(body != Globals.player):

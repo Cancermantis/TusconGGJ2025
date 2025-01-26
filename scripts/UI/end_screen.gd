@@ -67,6 +67,15 @@ func _save_photos():
 	date_string = date_string.replace("T", "_")
 	date_string = date_string.replace(":", "-")
 	
+	var should_save = false
+	for photo in photo_list:
+		if(photo.save_button.button_pressed):
+			should_save = true
+			break
+	
+	if(!should_save):
+		return
+	
 	var screenshot_folder: String = "user://screenshots/" + date_string
 	var dir = DirAccess.open("user://")
 	dir.make_dir_recursive(screenshot_folder)

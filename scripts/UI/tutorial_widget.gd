@@ -1,9 +1,13 @@
 extends VBoxContainer
 class_name TutorialWidget
 
-var tutorial_over = false;
+var tutorial_over = false
+var tutorial_started = false
 
 func show_tutorial():
+	if(tutorial_started):
+		return
+	tutorial_started = true
 	var tween = get_tree().create_tween()
 	$MoveControls.visible = true;
 	$MoveControls.modulate = Color.TRANSPARENT
