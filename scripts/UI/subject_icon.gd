@@ -12,3 +12,13 @@ class_name SubjectIcon
 			return
 		tooltip_text = subject_info.name + "\n" + subject_info.description
 		icon_texture.texture = subject_info.icon;
+
+func _make_custom_tooltip(for_text: String) -> Object:
+	var text = Label.new()
+	text.text = for_text
+	text.autowrap_mode = TextServer.AUTOWRAP_WORD
+	text.size = Vector2i(200, 50)
+	text.custom_minimum_size.x = 300
+	text.custom_minimum_size.y = 0
+	#tooltip.add_child(text)
+	return text

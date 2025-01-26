@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_4xq44")
-name = "Scorpion"
+name = "Bark Scorpion"
 cull_distance = 3.0
-description = ""
+description = "One of the most venomous scorions in North America"
 icon = ExtResource("1_ohle7")

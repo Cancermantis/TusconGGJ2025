@@ -7,5 +7,5 @@
 script = ExtResource("1_kcwj4")
 name = "Roadrunner"
 cull_distance = 8.0
-description = ""
+description = "Small birds that can fly, but prefer to run from predators rather than fly away"
 icon = ExtResource("1_u1di8")

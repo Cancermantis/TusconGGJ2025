@@ -7,5 +7,5 @@
 script = ExtResource("1_aq2yi")
 name = "Coyote"
 cull_distance = 8.0
-description = ""
+description = "A wild canine, with many subspecies found throughout North America"
 icon = ExtResource("1_j1kmi")
