@@ -123,7 +123,6 @@ size_flags_horizontal = 4
 text = "START"
 
 [node name="ExitButton" type="Button" parent="StartMenu/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "EXIT"

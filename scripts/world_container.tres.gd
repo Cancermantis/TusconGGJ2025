@@ -11,7 +11,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var tween = get_tree().create_tween()
 	tween.tween_property($WorldTexture, "modulate", Color.WHITE, .5)
-	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+	if OS.has_feature("web_android") or OS.has_feature("web_ios") or OS.get_name() == "Web":
 		$StartMenu/HBoxContainer/ExitButton.visible = false
 
 func _start():
