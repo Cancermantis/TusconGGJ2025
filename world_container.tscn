@@ -104,25 +104,29 @@ expand_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="StartMenu"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.55
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -43.5
 offset_top = -70.0
-offset_right = 43.5
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(43.5, 40)
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="Button" parent="StartMenu/HBoxContainer"]
 layout_mode = 2
-text = "Start"
+size_flags_horizontal = 4
+text = "START"
 
 [node name="ExitButton" type="Button" parent="StartMenu/HBoxContainer"]
+visible = false
 layout_mode = 2
-text = "Exit"
+size_flags_horizontal = 4
+text = "EXIT"
 
 [node name="Pulse" parent="." instance=ExtResource("7_2sh3b")]
 anchors_preset = 15

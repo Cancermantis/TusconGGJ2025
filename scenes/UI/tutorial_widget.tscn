@@ -17,10 +17,10 @@ grow_vertical = 2
 script = ExtResource("1_cybop")
 
 [node name="MoveControls" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MoveControls"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 

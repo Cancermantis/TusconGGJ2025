@@ -71,24 +71,35 @@ func _save_photos():
 	date_string = date_string.replace("T", "_")
 	date_string = date_string.replace(":", "-")
 	
-	var should_save = false
+	var photos_to_save: Array[Image]
 	for photo in photo_list:
 		if(photo.save_button.button_pressed):
-			should_save = true
-			break
+			photos_to_save.append(photo.texture.get_image())
 	
-	if(!should_save):
+	if(photos_to_save.is_empty()):
 		return
 	
-	var screenshot_folder: String = "user://screenshots/" + date_string
-	var dir = DirAccess.open("user://")
-	dir.make_dir_recursive(screenshot_folder)
-	var screenshot_path: String = screenshot_folder + "/photo_%02d.png"
 	
-	for i in range(photo_list.size()):
-		var photo: PhotoTile = photo_list[i]
-		if(photo.save_button.button_pressed):
-			photo.texture.get_image().save_png(screenshot_path % i)
+	if OS.get_name() == "Web":
+		var temp_path: String = "user://temp.zip"
+		var zip: ZIPPacker = ZIPPacker.new()
+		var err: Error = zip.open(temp_path)
+		if err != OK:
+			return
+		for i in range(photos_to_save.size()):
+			zip.start_file("photo_%02d.png" % i)
+			zip.write_file(photos_to_save[i].save_png_to_buffer())
+			zip.close_file()
+		zip.close()
+		var buffer = FileAccess.get_file_as_bytes(temp_path)
+		JavaScriptBridge.download_buffer(buffer, "SonoranPhotos.zip")
+	else:
+		var screenshot_folder: String = "user://screenshots/" + date_string
+		var dir = DirAccess.open("user://")
+		dir.make_dir_recursive(screenshot_folder)
+		var screenshot_path: String = screenshot_folder + "/photo_%02d.png"
+		for i in range(photos_to_save.size()):
+			photos_to_save[i].get_image().save_png(screenshot_path % i)
 
 
 func _on_save_all_pressed() -> void:
