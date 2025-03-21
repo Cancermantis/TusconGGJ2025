@@ -63,7 +63,6 @@ func _on_end_button_pressed() -> void:
 	tween.tween_property(self, "modulate", Color.BLACK, .5)
 	tween.tween_interval(.5)
 	await tween.finished
-	_save_photos()
 	get_tree().change_scene_to_file("uid://bwvtgy22th56p")
 
 func _save_photos():
@@ -99,9 +98,11 @@ func _save_photos():
 		dir.make_dir_recursive(screenshot_folder)
 		var screenshot_path: String = screenshot_folder + "/photo_%02d.png"
 		for i in range(photos_to_save.size()):
-			photos_to_save[i].get_image().save_png(screenshot_path % i)
+			photos_to_save[i].save_png(screenshot_path % i)
 
+func _on_save_pressed() -> void:
+	_save_photos()
 
-func _on_save_all_pressed() -> void:
+func _on_select_all_pressed() -> void:
 	for photo_tile: PhotoTile in photo_list:
 		photo_tile.save_button.button_pressed = true

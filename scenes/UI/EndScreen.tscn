@@ -60,11 +60,17 @@ last_wrap_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SaveAll" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="SelectAll" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Save All Photos"
+text = "Select All Photos"
+
+[node name="Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save Selected"
 
 [node name="EndButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -99,6 +105,7 @@ offset_right = 24.0
 offset_bottom = 31.0
 text = "x"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SaveAll" to="." method="_on_save_all_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SelectAll" to="." method="_on_select_all_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
 [connection signal="pressed" from="PhotoPreview/ExitPreview" to="." method="_on_exit_preview_pressed"]
